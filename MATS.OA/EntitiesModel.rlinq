@@ -1,0 +1,1217 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<DomainModel xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" dslVersion="2.0.0.0" name="MATSServerDbContext" namespace="MATS.OA" showPropertiesCompartment="true" xmlns="http://www.telerik.com/ORM">
+  <orm:orm name="MATSServerDbContext" backend="mssql" xmlns:orm="http://tempuri.org/ORM">
+    <orm:namespace name="MATS.OA" default="true">
+      <orm:class name="User" uniqueId="5767979b-c54f-445f-8900-5b0657a8673d">
+        <orm:table name="Users" />
+        <orm:identity>
+          <orm:key-generator name="autoinc" />
+          <orm:single-field field-name="_userId" />
+        </orm:identity>
+        <orm:concurrency strategy="changed" />
+        <orm:field name="_userId" property="UserId" behavior="readwrite" uniqueId="9805e369-94ab-4ae0-a984-d383666caec9" type="System.Int32">
+          <orm:column name="UserId" sql-type="int" nullable="false" length="0" scale="0" primary-key="true" backend-calculated="true" ado-type="Int32" />
+        </orm:field>
+        <orm:field name="_userName" property="UserName" behavior="readwrite" uniqueId="d4739883-d3b7-4447-a084-423151b5e59c" type="System.String">
+          <orm:column name="UserName" sql-type="nvarchar" nullable="false" length="50" scale="0" ado-type="UnicodeStringVariableLength" />
+        </orm:field>
+        <orm:field name="_email" property="Email" behavior="readwrite" uniqueId="067ceaf7-02d6-4845-a5ee-a392ba50881e" type="System.String">
+          <orm:column name="Email" sql-type="nvarchar" nullable="true" length="50" scale="0" ado-type="UnicodeStringVariableLength" />
+        </orm:field>
+        <orm:field name="_password" property="Password" behavior="readwrite" uniqueId="b3dd7416-bb76-43ee-b3d2-934ce3d0b5a4" type="System.String">
+          <orm:column name="Password" sql-type="nvarchar" nullable="false" length="150" scale="0" ado-type="UnicodeStringVariableLength" />
+        </orm:field>
+        <orm:field name="_fullName" property="FullName" behavior="readwrite" uniqueId="f4f60d54-d2f2-4567-9ca4-168d4d6c868f" type="System.String">
+          <orm:column name="FullName" sql-type="nvarchar" nullable="false" length="150" scale="0" ado-type="UnicodeStringVariableLength" />
+        </orm:field>
+        <orm:field name="_status" property="Status" behavior="readwrite" uniqueId="99413bf3-864a-49f6-8728-b0abb765c1fc" type="System.Int32">
+          <orm:column name="Status" sql-type="int" nullable="false" length="0" scale="0" ado-type="Int32" />
+        </orm:field>
+        <orm:field name="_enabled" property="Enabled" behavior="readwrite" uniqueId="4edd7a23-7c40-4d90-811f-d368ca5736c2" type="System.Int32">
+          <orm:column name="Enabled" sql-type="int" nullable="false" length="0" scale="0" ado-type="Int32" />
+        </orm:field>
+        <orm:field name="_dateRecordCreated" property="DateRecordCreated" behavior="readwrite" uniqueId="f9b9c0d8-f3d6-423e-81fe-d02f41efa03e" type="System.Nullable`1[[System.DateTime, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]">
+          <orm:column name="DateRecordCreated" sql-type="datetime" nullable="true" length="0" scale="0" ado-type="DateTime" />
+        </orm:field>
+        <orm:field name="_dateLastModified" property="DateLastModified" behavior="readwrite" uniqueId="159c98b7-db18-49d7-b59a-252a5ea7e910" type="System.Nullable`1[[System.DateTime, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]">
+          <orm:column name="DateLastModified" sql-type="datetime" nullable="true" length="0" scale="0" ado-type="DateTime" />
+        </orm:field>
+        <orm:field name="_roles" property="Roles" behavior="readwrite" uniqueId="f0ed89ea-073f-41d4-a381-22855d71fa5e" type="MATS.OA.Role">
+          <orm:collection element-class="MATS.OA.Role" inverse-field="_users" order-by="" uniqueId="37e69725-b990-49a7-a4d4-bcdcc7983482" />
+        </orm:field>
+      </orm:class>
+      <orm:class name="Ticket" uniqueId="15d8a962-77e7-4a95-80f5-3a6bf3811c90">
+        <orm:table name="Tickets" />
+        <orm:identity>
+          <orm:key-generator name="autoinc" />
+          <orm:single-field field-name="_id" />
+        </orm:identity>
+        <orm:concurrency strategy="changed" />
+        <orm:field name="_id" property="Id" behavior="readwrite" uniqueId="68550d64-0776-413d-9c0d-c44c6e450733" type="System.Int32">
+          <orm:column name="Id" sql-type="int" nullable="false" length="0" scale="0" primary-key="true" backend-calculated="true" ado-type="Int32" />
+        </orm:field>
+        <orm:field name="_passengerPassportNumber" property="PassengerPassportNumber" behavior="readwrite" uniqueId="bfbef89a-0a50-4190-b9f0-17f2d43e3c71" type="System.String">
+          <orm:column name="PassengerPassportNumber" sql-type="nvarchar" nullable="false" length="15" scale="0" ado-type="UnicodeStringVariableLength" />
+        </orm:field>
+        <orm:field name="_passengerFullName" property="PassengerFullName" behavior="readwrite" uniqueId="12fc193c-bdb6-4bca-b240-8a23a5f49779" type="System.String">
+          <orm:column name="PassengerFullName" sql-type="nvarchar" nullable="false" length="50" scale="0" ado-type="UnicodeStringVariableLength" />
+        </orm:field>
+        <orm:field name="_city" property="City" behavior="readwrite" uniqueId="ecee18ed-7018-4c7b-9b3b-aba50736d451" type="System.String">
+          <orm:column name="City" sql-type="nvarchar" nullable="false" length="20" scale="0" ado-type="UnicodeStringVariableLength" />
+        </orm:field>
+        <orm:field name="_route" property="Route" behavior="readwrite" uniqueId="ba8f1dad-62b6-451f-843c-660b74d3282c" type="System.String">
+          <orm:column name="Route" sql-type="nvarchar" nullable="true" length="150" scale="0" ado-type="UnicodeStringVariableLength" />
+        </orm:field>
+        <orm:field name="_airLines" property="AirLines" behavior="readwrite" uniqueId="91745dc4-d427-4027-8984-fc0c76d91449" type="System.String">
+          <orm:column name="AirLines" sql-type="nvarchar(max)" nullable="true" length="0" scale="0" ado-type="UnicodeStringInfiniteLength" />
+        </orm:field>
+        <orm:field name="_amount" property="Amount" behavior="readwrite" uniqueId="1060be70-39a2-4ae6-ad2c-7331ba084848" type="System.Double">
+          <orm:column name="Amount" sql-type="float" nullable="false" length="0" scale="0" ado-type="Double" />
+        </orm:field>
+        <orm:field name="_requestedDate" property="RequestedDate" behavior="readwrite" uniqueId="05768919-fb3e-47d0-abcb-408e1118b239" type="System.DateTime">
+          <orm:column name="RequestedDate" sql-type="datetime" nullable="false" length="0" scale="0" ado-type="DateTime" />
+        </orm:field>
+        <orm:field name="_typeOfTrip" property="TypeOfTrip" behavior="readwrite" uniqueId="f20b2ec9-3ab9-4871-bce8-d73df888e5b0" type="System.Int32">
+          <orm:column name="TypeOfTrip" sql-type="int" nullable="false" length="0" scale="0" ado-type="Int32" />
+        </orm:field>
+        <orm:field name="_ticketNumber" property="TicketNumber" behavior="readwrite" uniqueId="2078e548-6903-4472-9195-4109197aafc2" type="System.String">
+          <orm:column name="TicketNumber" sql-type="nvarchar" nullable="true" length="50" scale="0" ado-type="UnicodeStringVariableLength" />
+        </orm:field>
+        <orm:field name="_checkInDate" property="CheckInDate" behavior="readwrite" uniqueId="204f235f-7663-49ee-a616-1a695b7cdcf2" type="System.Nullable`1[[System.DateTime, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]">
+          <orm:column name="CheckInDate" sql-type="datetime" nullable="true" length="0" scale="0" ado-type="DateTime" />
+        </orm:field>
+        <orm:field name="_flightDate" property="FlightDate" behavior="readwrite" uniqueId="7737ec64-0ee0-409b-9427-48cb12b6c125" type="System.Nullable`1[[System.DateTime, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]">
+          <orm:column name="FlightDate" sql-type="datetime" nullable="true" length="0" scale="0" ado-type="DateTime" />
+        </orm:field>
+        <orm:field name="_commisionPercent" property="CommisionPercent" behavior="readwrite" uniqueId="4ce9b977-1d36-46c5-9cdb-ff7c3923017c" type="System.Nullable`1[[System.Single, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]">
+          <orm:column name="CommisionPercent" sql-type="real" nullable="true" length="0" scale="0" ado-type="Real" />
+        </orm:field>
+        <orm:field name="_flightCost" property="FlightCost" behavior="readwrite" uniqueId="c439f66b-da40-420f-9c60-05cf1ee489dc" type="System.Nullable`1[[System.Decimal, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]">
+          <orm:column name="FlightCost" sql-type="decimal" nullable="true" length="18" scale="2" ado-type="Decimal" />
+        </orm:field>
+        <orm:field name="_clientId" property="ClientId" behavior="readwrite" uniqueId="85a46c79-dd0f-4b1f-a412-d90acb452584" type="System.Int32">
+          <orm:column name="ClientId" sql-type="int" nullable="false" length="0" scale="0" ado-type="Int32" />
+        </orm:field>
+        <orm:field name="_localStatus" property="LocalStatus" behavior="readwrite" uniqueId="2cd4b810-97b6-4b26-8004-76d5df451e4e" type="System.Int32">
+          <orm:column name="LocalStatus" sql-type="int" nullable="false" length="0" scale="0" ado-type="Int32" />
+        </orm:field>
+        <orm:field name="_localStatusDate" property="LocalStatusDate" behavior="readwrite" uniqueId="255b7b0a-eb46-43e8-b738-9de886b980a8" type="System.Nullable`1[[System.DateTime, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]">
+          <orm:column name="LocalStatusDate" sql-type="datetime" nullable="true" length="0" scale="0" ado-type="DateTime" />
+        </orm:field>
+        <orm:field name="_serverStatus" property="ServerStatus" behavior="readwrite" uniqueId="71aa885b-1c71-4216-aa39-562a97d07f54" type="System.Int32">
+          <orm:column name="ServerStatus" sql-type="int" nullable="false" length="0" scale="0" ado-type="Int32" />
+        </orm:field>
+        <orm:field name="_serverStatusDate" property="ServerStatusDate" behavior="readwrite" uniqueId="c4a3162a-9782-4e32-9b23-7c04e2ba1b0c" type="System.Nullable`1[[System.DateTime, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]">
+          <orm:column name="ServerStatusDate" sql-type="datetime" nullable="true" length="0" scale="0" ado-type="DateTime" />
+        </orm:field>
+        <orm:field name="_enabled" property="Enabled" behavior="readwrite" uniqueId="74221ed3-194c-4c26-a856-298f47c9e56b" type="System.Int32">
+          <orm:column name="Enabled" sql-type="int" nullable="false" length="0" scale="0" ado-type="Int32" />
+        </orm:field>
+        <orm:field name="_createdByUserId" property="CreatedByUserId" behavior="readwrite" uniqueId="6ec114f9-e270-4864-9017-55559a06e7ab" type="System.Nullable`1[[System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]">
+          <orm:column name="CreatedByUserId" sql-type="int" nullable="true" length="0" scale="0" ado-type="Int32" />
+        </orm:field>
+        <orm:field name="_dateRecordCreated" property="DateRecordCreated" behavior="readwrite" uniqueId="f25c11d9-8a42-417b-92e6-3269b2346bcf" type="System.Nullable`1[[System.DateTime, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]">
+          <orm:column name="DateRecordCreated" sql-type="datetime" nullable="true" length="0" scale="0" ado-type="DateTime" />
+        </orm:field>
+        <orm:field name="_modifiedByUserId" property="ModifiedByUserId" behavior="readwrite" uniqueId="4c1ff341-9c75-40b8-82b9-f0ebeaf0d424" type="System.Nullable`1[[System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]">
+          <orm:column name="ModifiedByUserId" sql-type="int" nullable="true" length="0" scale="0" ado-type="Int32" />
+        </orm:field>
+        <orm:field name="_dateLastModified" property="DateLastModified" behavior="readwrite" uniqueId="bc560ef0-65fb-4f5f-8748-c92548a2d147" type="System.Nullable`1[[System.DateTime, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]">
+          <orm:column name="DateLastModified" sql-type="datetime" nullable="true" length="0" scale="0" ado-type="DateTime" />
+        </orm:field>
+        <orm:field name="_serverPost" property="ServerPost" behavior="readwrite" uniqueId="d70e48c8-906b-4652-97fb-69dcd1d389f8" type="System.Boolean">
+          <orm:column name="ServerPost" sql-type="bit" nullable="false" length="0" scale="0" ado-type="Bit" />
+        </orm:field>
+        <orm:field name="_localPost" property="LocalPost" behavior="readwrite" uniqueId="44f61437-6efe-4da2-93fc-0c9618b34669" type="System.Boolean">
+          <orm:column name="LocalPost" sql-type="bit" nullable="false" length="0" scale="0" ado-type="Bit" />
+        </orm:field>
+        <orm:field name="_rOWGUID" property="ROWGUID" behavior="readwrite" uniqueId="7cea3e8c-83f4-4a1a-8fb4-63e20f88a8be" type="System.String">
+          <orm:column name="ROWGUID" sql-type="nvarchar(max)" nullable="false" length="0" scale="0" ado-type="UnicodeStringInfiniteLength" />
+        </orm:field>
+        <orm:field name="_client" property="Client" behavior="readwrite" uniqueId="bf2d77e2-11bb-420a-8b8b-787570193f49" type="MATS.OA.Client">
+          <orm:reference uniqueId="518b0638-87a1-477d-9aec-79fe303d2b62">
+            <orm:sharedfield name="_clientId" target-class="MATS.OA.Client" target-field="_id" />
+            <orm:constraint name="FK_dbo.Tickets_dbo.Clients_ClientId" destination-table="Clients" />
+          </orm:reference>
+        </orm:field>
+        <orm:field name="_remarks" property="Remarks" behavior="readwrite" uniqueId="96281f19-e00a-49c9-9bbd-a5d87e315abc" type="MATS.OA.Remark">
+          <orm:collection element-class="MATS.OA.Remark" inverse-field="_ticket" order-by="" uniqueId="d0e0d891-b09b-40c7-a46d-6af20b8aabc7" />
+        </orm:field>
+        <orm:field name="_paymentDTOs" property="PaymentDTOs" behavior="readwrite" uniqueId="9ab3bba4-3a9c-4578-9519-bce72fca67b1" type="MATS.OA.PaymentDTO">
+          <orm:collection element-class="MATS.OA.PaymentDTO" inverse-field="_ticket" order-by="" uniqueId="223ce6b4-3577-46ea-b844-926c5552a9ae" />
+        </orm:field>
+        <orm:field name="_attachments" property="Attachments" behavior="readwrite" uniqueId="23c6b05e-7c8d-411b-ae65-5fcdad3e0a6c" type="MATS.OA.Attachment">
+          <orm:collection element-class="MATS.OA.Attachment" inverse-field="_ticket" order-by="" uniqueId="07511a04-24ee-4901-abd5-88a242b274cb" />
+        </orm:field>
+        <orm:index name="IX_ClientId">
+          <orm:columnMapping>
+            <orm:column name="ClientId" sql-type="int" nullable="false" length="0" scale="0" ado-type="Int32" />
+          </orm:columnMapping>
+        </orm:index>
+      </orm:class>
+      <orm:class name="Role" uniqueId="437758ea-2a10-497c-b85f-6e343c052ab1">
+        <orm:table name="Roles" />
+        <orm:identity>
+          <orm:key-generator name="autoinc" />
+          <orm:single-field field-name="_roleId" />
+        </orm:identity>
+        <orm:concurrency strategy="changed" />
+        <orm:field name="_roleId" property="RoleId" behavior="readwrite" uniqueId="136bd02e-c607-41e5-b7cd-90f44eb0aa99" type="System.Int32">
+          <orm:column name="RoleId" sql-type="int" nullable="false" length="0" scale="0" primary-key="true" backend-calculated="true" ado-type="Int32" />
+        </orm:field>
+        <orm:field name="_roleDescription" property="RoleDescription" behavior="readwrite" uniqueId="71bf7168-4dd4-407f-a1cc-dd32bedac264" type="System.String">
+          <orm:column name="RoleDescription" sql-type="nvarchar" nullable="false" length="255" scale="0" ado-type="UnicodeStringVariableLength" />
+        </orm:field>
+        <orm:field name="_roleDescriptionShort" property="RoleDescriptionShort" behavior="readwrite" uniqueId="cdcd8ac2-c5da-4340-ab48-006ee5f98c44" type="System.String">
+          <orm:column name="RoleDescriptionShort" sql-type="nvarchar(max)" nullable="true" length="0" scale="0" ado-type="UnicodeStringInfiniteLength" />
+        </orm:field>
+        <orm:field name="_enabled" property="Enabled" behavior="readwrite" uniqueId="2a04dcea-8613-4517-9b2b-4b39ae1ae524" type="System.Int32">
+          <orm:column name="Enabled" sql-type="int" nullable="false" length="0" scale="0" ado-type="Int32" />
+        </orm:field>
+        <orm:field name="_dateRecordCreated" property="DateRecordCreated" behavior="readwrite" uniqueId="1af448ab-8ff1-48a5-9763-2fd8656f54cb" type="System.Nullable`1[[System.DateTime, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]">
+          <orm:column name="DateRecordCreated" sql-type="datetime" nullable="true" length="0" scale="0" ado-type="DateTime" />
+        </orm:field>
+        <orm:field name="_dateLastModified" property="DateLastModified" behavior="readwrite" uniqueId="8d85c702-fb6c-4e81-ba96-a3cd554183eb" type="System.Nullable`1[[System.DateTime, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]">
+          <orm:column name="DateLastModified" sql-type="datetime" nullable="true" length="0" scale="0" ado-type="DateTime" />
+        </orm:field>
+        <orm:field name="_users" property="Users" behavior="readwrite" uniqueId="741ff3e4-3fb9-4bc8-974e-cc51fe8704c6" type="MATS.OA.User">
+          <orm:join-table uniqueId="37e69725-b990-49a7-a4d4-bcdcc7983482" association-name="RolesHaveUsers">
+            <orm:table name="UsersInRoles" join-table="true" />
+            <orm:owner>
+              <orm:constraint name="FK_dbo.UsersInRoles_dbo.Roles_RoleId" destination-table="Roles">
+                <orm:column name="RoleId" sql-type="int" nullable="false" length="0" scale="0" primary-key="true" ado-type="Int32" target-class="MATS.OA.Role" target-field="_roleId" />
+              </orm:constraint>
+            </orm:owner>
+            <orm:value>
+              <orm:constraint name="FK_dbo.UsersInRoles_dbo.Users_UserId" destination-table="Users">
+                <orm:column name="UserId" sql-type="int" nullable="false" length="0" scale="0" primary-key="true" ado-type="Int32" target-class="MATS.OA.User" target-field="_userId" />
+              </orm:constraint>
+            </orm:value>
+          </orm:join-table>
+        </orm:field>
+      </orm:class>
+      <orm:class name="Remark" uniqueId="eada8611-d2c5-41e4-87f4-89635f3afbd8">
+        <orm:table name="Remarks" />
+        <orm:identity>
+          <orm:key-generator name="autoinc" />
+          <orm:single-field field-name="_id" />
+        </orm:identity>
+        <orm:concurrency strategy="changed" />
+        <orm:field name="_id" property="Id" behavior="readwrite" uniqueId="31fd0e06-c839-462d-969b-b1261bab867d" type="System.Int32">
+          <orm:column name="Id" sql-type="int" nullable="false" length="0" scale="0" primary-key="true" backend-calculated="true" ado-type="Int32" />
+        </orm:field>
+        <orm:field name="_remarkText" property="RemarkText" behavior="readwrite" uniqueId="da4e5057-5d1a-4b0c-8927-2b12faf58ccd" type="System.String">
+          <orm:column name="RemarkText" sql-type="nvarchar(max)" nullable="false" length="0" scale="0" ado-type="UnicodeStringInfiniteLength" />
+        </orm:field>
+        <orm:field name="_ticketId" property="TicketId" behavior="readwrite" uniqueId="4a8500ab-26c9-47bd-968f-921a66d8427a" type="System.Int32">
+          <orm:column name="TicketId" sql-type="int" nullable="false" length="0" scale="0" ado-type="Int32" />
+        </orm:field>
+        <orm:field name="_enabled" property="Enabled" behavior="readwrite" uniqueId="fa4ebd1c-e274-4d80-af1f-b43a4e231eb9" type="System.Int32">
+          <orm:column name="Enabled" sql-type="int" nullable="false" length="0" scale="0" ado-type="Int32" />
+        </orm:field>
+        <orm:field name="_createdByUserId" property="CreatedByUserId" behavior="readwrite" uniqueId="b360d55f-3d92-4173-abb4-fcdd01f9dfca" type="System.Nullable`1[[System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]">
+          <orm:column name="CreatedByUserId" sql-type="int" nullable="true" length="0" scale="0" ado-type="Int32" />
+        </orm:field>
+        <orm:field name="_dateRecordCreated" property="DateRecordCreated" behavior="readwrite" uniqueId="d008d3c1-1e79-4321-9be8-0b1fc8bf1038" type="System.Nullable`1[[System.DateTime, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]">
+          <orm:column name="DateRecordCreated" sql-type="datetime" nullable="true" length="0" scale="0" ado-type="DateTime" />
+        </orm:field>
+        <orm:field name="_modifiedByUserId" property="ModifiedByUserId" behavior="readwrite" uniqueId="aab120f9-6c5a-4b2a-85f8-c6a06249aef4" type="System.Nullable`1[[System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]">
+          <orm:column name="ModifiedByUserId" sql-type="int" nullable="true" length="0" scale="0" ado-type="Int32" />
+        </orm:field>
+        <orm:field name="_dateLastModified" property="DateLastModified" behavior="readwrite" uniqueId="b55b0a93-d788-418d-bbba-e3a5403b0840" type="System.Nullable`1[[System.DateTime, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]">
+          <orm:column name="DateLastModified" sql-type="datetime" nullable="true" length="0" scale="0" ado-type="DateTime" />
+        </orm:field>
+        <orm:field name="_ticket" property="Ticket" behavior="readwrite" uniqueId="cc3a41c5-2363-4af8-8516-4b5993b46d6a" type="MATS.OA.Ticket">
+          <orm:reference uniqueId="d0e0d891-b09b-40c7-a46d-6af20b8aabc7">
+            <orm:sharedfield name="_ticketId" target-class="MATS.OA.Ticket" target-field="_id" />
+            <orm:constraint name="FK_dbo.Remarks_dbo.Tickets_TicketId" destination-table="Tickets" />
+          </orm:reference>
+        </orm:field>
+        <orm:index name="IX_TicketId">
+          <orm:columnMapping>
+            <orm:column name="TicketId" sql-type="int" nullable="false" length="0" scale="0" ado-type="Int32" />
+          </orm:columnMapping>
+        </orm:index>
+      </orm:class>
+      <orm:class name="ProductActivation" uniqueId="a2d6132f-0844-4ed0-aff9-69c4a38a246b">
+        <orm:table name="ProductActivation" />
+        <orm:identity>
+          <orm:key-generator name="autoinc" />
+          <orm:single-field field-name="_id" />
+        </orm:identity>
+        <orm:concurrency strategy="changed" />
+        <orm:field name="_id" property="Id" behavior="readwrite" uniqueId="4b6b97cb-e01e-43c7-a839-54e721ff70eb" type="System.Int32">
+          <orm:column name="Id" sql-type="int" nullable="false" length="0" scale="0" primary-key="true" backend-calculated="true" ado-type="Int32" />
+        </orm:field>
+        <orm:field name="_productKey" property="ProductKey" behavior="readwrite" uniqueId="e7e8773c-c525-49fa-aefb-bfc6db1f73f3" type="System.String">
+          <orm:column name="ProductKey" sql-type="nvarchar" nullable="false" length="150" scale="0" ado-type="UnicodeStringVariableLength" />
+        </orm:field>
+        <orm:field name="_licensedTo" property="LicensedTo" behavior="readwrite" uniqueId="e4173be6-e573-40c2-a406-0a46e368355f" type="System.String">
+          <orm:column name="LicensedTo" sql-type="nvarchar" nullable="false" length="150" scale="0" ado-type="UnicodeStringVariableLength" />
+        </orm:field>
+        <orm:field name="_activatedDate" property="ActivatedDate" behavior="readwrite" uniqueId="ee404408-fa07-47af-81e6-8e4eb97412c7" type="System.DateTime">
+          <orm:column name="ActivatedDate" sql-type="datetime" nullable="false" length="0" scale="0" ado-type="DateTime" />
+        </orm:field>
+        <orm:field name="_expirationDate" property="ExpirationDate" behavior="readwrite" uniqueId="a66669cf-fa12-4b3b-a569-e78f9a4287f6" type="System.DateTime">
+          <orm:column name="ExpirationDate" sql-type="datetime" nullable="false" length="0" scale="0" ado-type="DateTime" />
+        </orm:field>
+        <orm:field name="_registeredBIOS_SN" property="RegisteredBIOS_SN" behavior="readwrite" uniqueId="7bb25f08-5972-4151-aa62-7f7361c42e51" type="System.String">
+          <orm:column name="RegisteredBIOS_SN" sql-type="nvarchar" nullable="false" length="150" scale="0" ado-type="UnicodeStringVariableLength" />
+        </orm:field>
+        <orm:field name="_enabled" property="Enabled" behavior="readwrite" uniqueId="7cba151c-f3e5-4203-988d-e7cbbc3bf08d" type="System.Int32">
+          <orm:column name="Enabled" sql-type="int" nullable="false" length="0" scale="0" ado-type="Int32" />
+        </orm:field>
+        <orm:field name="_createdByUserId" property="CreatedByUserId" behavior="readwrite" uniqueId="a3804f80-08ea-4559-94ff-f4be00cbeaff" type="System.Nullable`1[[System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]">
+          <orm:column name="CreatedByUserId" sql-type="int" nullable="true" length="0" scale="0" ado-type="Int32" />
+        </orm:field>
+        <orm:field name="_dateRecordCreated" property="DateRecordCreated" behavior="readwrite" uniqueId="92d90fec-640b-41b1-8d1a-d64eacbe804b" type="System.Nullable`1[[System.DateTime, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]">
+          <orm:column name="DateRecordCreated" sql-type="datetime" nullable="true" length="0" scale="0" ado-type="DateTime" />
+        </orm:field>
+        <orm:field name="_modifiedByUserId" property="ModifiedByUserId" behavior="readwrite" uniqueId="246986e8-03a5-4d41-86b4-adfa440d5d40" type="System.Nullable`1[[System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]">
+          <orm:column name="ModifiedByUserId" sql-type="int" nullable="true" length="0" scale="0" ado-type="Int32" />
+        </orm:field>
+        <orm:field name="_dateLastModified" property="DateLastModified" behavior="readwrite" uniqueId="2dc6bce3-05dd-4d14-978b-b003b5371bd5" type="System.Nullable`1[[System.DateTime, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]">
+          <orm:column name="DateLastModified" sql-type="datetime" nullable="true" length="0" scale="0" ado-type="DateTime" />
+        </orm:field>
+        <orm:field name="_clientId" property="ClientId" behavior="readwrite" uniqueId="7421b676-4b66-4296-9be5-54ae30c99b88" type="System.Int32">
+          <orm:column name="ClientId" sql-type="int" nullable="false" length="0" scale="0" ado-type="Int32" />
+        </orm:field>
+      </orm:class>
+      <orm:class name="PaymentDTO" uniqueId="b6a39d4a-1345-488f-a64e-91066c25d6f5">
+        <orm:table name="PaymentDTO" />
+        <orm:identity>
+          <orm:key-generator name="autoinc" />
+          <orm:single-field field-name="_id" />
+        </orm:identity>
+        <orm:concurrency strategy="changed" />
+        <orm:field name="_id" property="Id" behavior="readwrite" uniqueId="066cceee-0a83-4d72-9a64-2ecde347cae6" type="System.Int32">
+          <orm:column name="Id" sql-type="int" nullable="false" length="0" scale="0" primary-key="true" backend-calculated="true" ado-type="Int32" />
+        </orm:field>
+        <orm:field name="_amountPaid" property="AmountPaid" behavior="readwrite" uniqueId="2af7e077-af08-45b9-af67-512834379f17" type="System.Double">
+          <orm:column name="AmountPaid" sql-type="float" nullable="false" length="0" scale="0" ado-type="Double" />
+        </orm:field>
+        <orm:field name="_paidDate" property="PaidDate" behavior="readwrite" uniqueId="75e0a30c-450d-42ed-a11e-785476f105f3" type="System.DateTime">
+          <orm:column name="PaidDate" sql-type="datetime" nullable="false" length="0" scale="0" ado-type="DateTime" />
+        </orm:field>
+        <orm:field name="_paymentStatus" property="PaymentStatus" behavior="readwrite" uniqueId="4d2536e1-a6f8-44e6-8dd4-bfc88e48e352" type="System.String">
+          <orm:column name="PaymentStatus" sql-type="nvarchar(max)" nullable="true" length="0" scale="0" ado-type="UnicodeStringInfiniteLength" />
+        </orm:field>
+        <orm:field name="_ticketId" property="TicketId" behavior="readwrite" uniqueId="a77969b0-bce6-40a0-acac-82835a6d20ac" type="System.Int32">
+          <orm:column name="TicketId" sql-type="int" nullable="false" length="0" scale="0" ado-type="Int32" />
+        </orm:field>
+        <orm:field name="_enabled" property="Enabled" behavior="readwrite" uniqueId="81fbebdf-56ab-4a08-b9aa-42a60d1b2f5b" type="System.Int32">
+          <orm:column name="Enabled" sql-type="int" nullable="false" length="0" scale="0" ado-type="Int32" />
+        </orm:field>
+        <orm:field name="_createdByUserId" property="CreatedByUserId" behavior="readwrite" uniqueId="1240c0be-0d7f-4aef-9154-60494002399e" type="System.Nullable`1[[System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]">
+          <orm:column name="CreatedByUserId" sql-type="int" nullable="true" length="0" scale="0" ado-type="Int32" />
+        </orm:field>
+        <orm:field name="_dateRecordCreated" property="DateRecordCreated" behavior="readwrite" uniqueId="fde674d8-9139-48a0-bd25-2033e90393bf" type="System.Nullable`1[[System.DateTime, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]">
+          <orm:column name="DateRecordCreated" sql-type="datetime" nullable="true" length="0" scale="0" ado-type="DateTime" />
+        </orm:field>
+        <orm:field name="_modifiedByUserId" property="ModifiedByUserId" behavior="readwrite" uniqueId="c12226d0-2745-4535-8740-a6b748a7485b" type="System.Nullable`1[[System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]">
+          <orm:column name="ModifiedByUserId" sql-type="int" nullable="true" length="0" scale="0" ado-type="Int32" />
+        </orm:field>
+        <orm:field name="_dateLastModified" property="DateLastModified" behavior="readwrite" uniqueId="da494219-eea0-4650-8480-858d85c0ddfe" type="System.Nullable`1[[System.DateTime, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]">
+          <orm:column name="DateLastModified" sql-type="datetime" nullable="true" length="0" scale="0" ado-type="DateTime" />
+        </orm:field>
+        <orm:field name="_ticket" property="Ticket" behavior="readwrite" uniqueId="3f83fb50-2a91-43b0-9f59-0f5b5b250e26" type="MATS.OA.Ticket">
+          <orm:reference uniqueId="223ce6b4-3577-46ea-b844-926c5552a9ae">
+            <orm:sharedfield name="_ticketId" target-class="MATS.OA.Ticket" target-field="_id" />
+            <orm:constraint name="FK_dbo.PaymentDTO_dbo.Tickets_TicketId" destination-table="Tickets" />
+          </orm:reference>
+        </orm:field>
+        <orm:index name="IX_TicketId">
+          <orm:columnMapping>
+            <orm:column name="TicketId" sql-type="int" nullable="false" length="0" scale="0" ado-type="Int32" />
+          </orm:columnMapping>
+        </orm:index>
+      </orm:class>
+      <orm:class name="List" uniqueId="197d28f7-a8be-4382-91e9-c06230b958ab">
+        <orm:table name="Lists" />
+        <orm:identity>
+          <orm:key-generator name="autoinc" />
+          <orm:single-field field-name="_id" />
+        </orm:identity>
+        <orm:concurrency strategy="changed" />
+        <orm:field name="_id" property="Id" behavior="readwrite" uniqueId="8119faf7-6c77-4bcc-8dc5-0c9e2ee0cf3e" type="System.Int32">
+          <orm:column name="Id" sql-type="int" nullable="false" length="0" scale="0" primary-key="true" backend-calculated="true" ado-type="Int32" />
+        </orm:field>
+        <orm:field name="_type" property="Type" behavior="readwrite" uniqueId="a8135ffc-3fe6-488b-b251-1c215318261c" type="System.Int32">
+          <orm:column name="Type" sql-type="int" nullable="false" length="0" scale="0" ado-type="Int32" />
+        </orm:field>
+        <orm:field name="_displayName" property="DisplayName" behavior="readwrite" uniqueId="0e6fba10-8a6f-4724-bf8b-f15ec99f8b51" type="System.String">
+          <orm:column name="DisplayName" sql-type="nvarchar" nullable="false" length="75" scale="0" ado-type="UnicodeStringVariableLength" />
+        </orm:field>
+      </orm:class>
+      <orm:class name="Contact" uniqueId="dfb9b98a-4ba9-4b91-b66c-9f1f996c607d">
+        <orm:table name="Contacts" />
+        <orm:identity>
+          <orm:key-generator name="autoinc" />
+          <orm:single-field field-name="_id" />
+        </orm:identity>
+        <orm:concurrency strategy="changed" />
+        <orm:field name="_id" property="Id" behavior="readwrite" uniqueId="fa3163fa-b31b-4ba9-9fe0-d260ccf36d71" type="System.Int32">
+          <orm:column name="Id" sql-type="int" nullable="false" length="0" scale="0" primary-key="true" backend-calculated="true" ado-type="Int32" />
+        </orm:field>
+        <orm:field name="_contactName" property="ContactName" behavior="readwrite" uniqueId="5777089b-5b81-4bfd-889f-8bb4655d228f" type="System.String">
+          <orm:column name="ContactName" sql-type="nvarchar" nullable="false" length="45" scale="0" ado-type="UnicodeStringVariableLength" />
+        </orm:field>
+        <orm:field name="_contactTitle" property="ContactTitle" behavior="readwrite" uniqueId="1ff8b147-8030-4852-825e-fa0a58b73648" type="System.String">
+          <orm:column name="ContactTitle" sql-type="nvarchar" nullable="true" length="15" scale="0" ado-type="UnicodeStringVariableLength" />
+        </orm:field>
+        <orm:field name="_addressId" property="AddressId" behavior="readwrite" uniqueId="878c612f-fc20-472d-ae96-7d65cd1e72f7" type="System.Int32">
+          <orm:column name="AddressId" sql-type="int" nullable="false" length="0" scale="0" ado-type="Int32" />
+        </orm:field>
+        <orm:field name="_enabled" property="Enabled" behavior="readwrite" uniqueId="5351d937-a626-4d52-b874-917298c087d1" type="System.Int32">
+          <orm:column name="Enabled" sql-type="int" nullable="false" length="0" scale="0" ado-type="Int32" />
+        </orm:field>
+        <orm:field name="_createdByUserId" property="CreatedByUserId" behavior="readwrite" uniqueId="1d2c3ff0-ad31-4744-b232-35234d38c528" type="System.Nullable`1[[System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]">
+          <orm:column name="CreatedByUserId" sql-type="int" nullable="true" length="0" scale="0" ado-type="Int32" />
+        </orm:field>
+        <orm:field name="_dateRecordCreated" property="DateRecordCreated" behavior="readwrite" uniqueId="c0777537-1139-45d5-a750-81c6733f9c27" type="System.Nullable`1[[System.DateTime, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]">
+          <orm:column name="DateRecordCreated" sql-type="datetime" nullable="true" length="0" scale="0" ado-type="DateTime" />
+        </orm:field>
+        <orm:field name="_modifiedByUserId" property="ModifiedByUserId" behavior="readwrite" uniqueId="ad54d25b-a726-46b2-8567-3f2c702c8be8" type="System.Nullable`1[[System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]">
+          <orm:column name="ModifiedByUserId" sql-type="int" nullable="true" length="0" scale="0" ado-type="Int32" />
+        </orm:field>
+        <orm:field name="_dateLastModified" property="DateLastModified" behavior="readwrite" uniqueId="1fd1861d-f8a8-41eb-8adb-429e99d589ad" type="System.Nullable`1[[System.DateTime, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]">
+          <orm:column name="DateLastModified" sql-type="datetime" nullable="true" length="0" scale="0" ado-type="DateTime" />
+        </orm:field>
+        <orm:field name="_address" property="Address" behavior="readwrite" uniqueId="cdf6102b-c561-4c0f-95e9-934eb4884134" type="MATS.OA.Address">
+          <orm:reference uniqueId="74b80b80-cbfd-4d8f-9fd3-45b32f0358dc">
+            <orm:sharedfield name="_addressId" target-class="MATS.OA.Address" target-field="_id" />
+            <orm:constraint name="FK_dbo.Contacts_dbo.Addresses_AddressId" destination-table="Addresses" />
+          </orm:reference>
+        </orm:field>
+        <orm:index name="IX_AddressId">
+          <orm:columnMapping>
+            <orm:column name="AddressId" sql-type="int" nullable="false" length="0" scale="0" ado-type="Int32" />
+          </orm:columnMapping>
+        </orm:index>
+      </orm:class>
+      <orm:class name="Client" uniqueId="3aab20fc-c1ea-4f3c-ba35-8cf65e43dc4c">
+        <orm:table name="Clients" />
+        <orm:identity>
+          <orm:key-generator name="autoinc" />
+          <orm:single-field field-name="_id" />
+        </orm:identity>
+        <orm:concurrency strategy="changed" />
+        <orm:field name="_id" property="Id" behavior="readwrite" uniqueId="b3d4aea0-7c51-44f4-9326-ee17cedc27e3" type="System.Int32">
+          <orm:column name="Id" sql-type="int" nullable="false" length="0" scale="0" primary-key="true" backend-calculated="true" ado-type="Int32" />
+        </orm:field>
+        <orm:field name="_clientCode" property="ClientCode" behavior="readwrite" uniqueId="895486bb-fd06-4c10-8b3c-0b538a519dbe" type="System.String">
+          <orm:column name="ClientCode" sql-type="nvarchar" nullable="false" length="50" scale="0" ado-type="UnicodeStringVariableLength" />
+        </orm:field>
+        <orm:field name="_displayName" property="DisplayName" behavior="readwrite" uniqueId="8f141f5a-ef7b-4e79-a9f9-050b39154cc7" type="System.String">
+          <orm:column name="DisplayName" sql-type="nvarchar" nullable="false" length="50" scale="0" ado-type="UnicodeStringVariableLength" />
+        </orm:field>
+        <orm:field name="_contactName" property="ContactName" behavior="readwrite" uniqueId="c72a0a7e-2eb0-479e-b9ca-89b4fdae7654" type="System.String">
+          <orm:column name="ContactName" sql-type="nvarchar" nullable="true" length="50" scale="0" ado-type="UnicodeStringVariableLength" />
+        </orm:field>
+        <orm:field name="_contactTitle" property="ContactTitle" behavior="readwrite" uniqueId="0a7e8ceb-8307-473b-a532-ecf250f8bf15" type="System.String">
+          <orm:column name="ContactTitle" sql-type="nvarchar" nullable="true" length="50" scale="0" ado-type="UnicodeStringVariableLength" />
+        </orm:field>
+        <orm:field name="_outStandingDeposit" property="OutStandingDeposit" behavior="readwrite" uniqueId="16723ee3-c9ee-411e-bbfe-ab6eb0d68099" type="System.Nullable`1[[System.Decimal, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]">
+          <orm:column name="OutStandingDeposit" sql-type="decimal" nullable="true" length="18" scale="2" ado-type="Decimal" />
+        </orm:field>
+        <orm:field name="_clientStatus" property="ClientStatus" behavior="readwrite" uniqueId="d3e72d3c-c980-4fda-a20e-20445b77a8a4" type="System.Int32">
+          <orm:column name="ClientStatus" sql-type="int" nullable="false" length="0" scale="0" ado-type="Int32" />
+        </orm:field>
+        <orm:field name="_productKey" property="ProductKey" behavior="readwrite" uniqueId="f0b76d24-17a4-4376-8682-efce3b1634ab" type="System.String">
+          <orm:column name="ProductKey" sql-type="nvarchar(max)" nullable="false" length="0" scale="0" ado-type="UnicodeStringInfiniteLength" />
+        </orm:field>
+        <orm:field name="_expiryDuration" property="ExpiryDuration" behavior="readwrite" uniqueId="2cb0b742-4e11-4acf-a389-630e4e66c11a" type="System.Int32">
+          <orm:column name="ExpiryDuration" sql-type="int" nullable="false" length="0" scale="0" ado-type="Int32" />
+        </orm:field>
+        <orm:field name="_bIOS_SN" property="BIOS_SN" behavior="readwrite" uniqueId="64f5e526-95dd-4852-ba13-3a6c2f634598" type="System.String">
+          <orm:column name="BIOS_SN" sql-type="nvarchar(max)" nullable="true" length="0" scale="0" ado-type="UnicodeStringInfiniteLength" />
+        </orm:field>
+        <orm:field name="_noOfActivations" property="NoOfActivations" behavior="readwrite" uniqueId="2f0a1b23-b15d-4c61-949e-231e84901e25" type="System.Int32">
+          <orm:column name="NoOfActivations" sql-type="int" nullable="false" length="0" scale="0" ado-type="Int32" />
+        </orm:field>
+        <orm:field name="_activationDate" property="ActivationDate" behavior="readwrite" uniqueId="8677a765-8d78-4a2c-9fe9-24bb74b27765" type="System.Nullable`1[[System.DateTime, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]">
+          <orm:column name="ActivationDate" sql-type="datetime" nullable="true" length="0" scale="0" ado-type="DateTime" />
+        </orm:field>
+        <orm:field name="_expirationDate" property="ExpirationDate" behavior="readwrite" uniqueId="5bfc2a68-6c1c-44f0-a1cd-00b018821719" type="System.Nullable`1[[System.DateTime, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]">
+          <orm:column name="ExpirationDate" sql-type="datetime" nullable="true" length="0" scale="0" ado-type="DateTime" />
+        </orm:field>
+        <orm:field name="_addressId" property="AddressId" behavior="readwrite" uniqueId="a07e128c-9f2d-4b8d-83f1-511805c0fdf2" type="System.Nullable`1[[System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]">
+          <orm:column name="AddressId" sql-type="int" nullable="true" length="0" scale="0" ado-type="Int32" />
+        </orm:field>
+        <orm:field name="_enabled" property="Enabled" behavior="readwrite" uniqueId="7c6d1f60-d4be-4fac-96c4-fd4e25ded9d4" type="System.Int32">
+          <orm:column name="Enabled" sql-type="int" nullable="false" length="0" scale="0" ado-type="Int32" />
+        </orm:field>
+        <orm:field name="_createdByUserId" property="CreatedByUserId" behavior="readwrite" uniqueId="d5a1d138-4df2-45ba-a641-e2673ab189c0" type="System.Nullable`1[[System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]">
+          <orm:column name="CreatedByUserId" sql-type="int" nullable="true" length="0" scale="0" ado-type="Int32" />
+        </orm:field>
+        <orm:field name="_dateRecordCreated" property="DateRecordCreated" behavior="readwrite" uniqueId="7a160d5b-0a17-49d9-bc0c-0702ce3cb76d" type="System.Nullable`1[[System.DateTime, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]">
+          <orm:column name="DateRecordCreated" sql-type="datetime" nullable="true" length="0" scale="0" ado-type="DateTime" />
+        </orm:field>
+        <orm:field name="_modifiedByUserId" property="ModifiedByUserId" behavior="readwrite" uniqueId="0fff0292-4730-49d1-804d-bced91bdddbb" type="System.Nullable`1[[System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]">
+          <orm:column name="ModifiedByUserId" sql-type="int" nullable="true" length="0" scale="0" ado-type="Int32" />
+        </orm:field>
+        <orm:field name="_dateLastModified" property="DateLastModified" behavior="readwrite" uniqueId="8d2fbfa9-8717-4dc7-91cb-4be395bcb079" type="System.Nullable`1[[System.DateTime, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]">
+          <orm:column name="DateLastModified" sql-type="datetime" nullable="true" length="0" scale="0" ado-type="DateTime" />
+        </orm:field>
+        <orm:field name="_noOfAllowedPcs" property="NoOfAllowedPcs" behavior="readwrite" uniqueId="353e3c6d-5cbf-46ae-9738-0d629043775b" type="System.Int32">
+          <orm:column name="NoOfAllowedPcs" sql-type="int" nullable="false" length="0" scale="0" ado-type="Int32" />
+        </orm:field>
+        <orm:field name="_address" property="Address" behavior="readwrite" uniqueId="42a22f83-3aad-4409-8fcd-f2a33fd80ae7" type="MATS.OA.Address">
+          <orm:reference uniqueId="be1d530b-aced-47a3-a050-4091862c8947">
+            <orm:sharedfield name="_addressId" target-class="MATS.OA.Address" target-field="_id" />
+            <orm:constraint name="FK_dbo.Clients_dbo.Addresses_AddressId" destination-table="Addresses" />
+          </orm:reference>
+        </orm:field>
+        <orm:field name="_tickets" property="Tickets" behavior="readwrite" uniqueId="e677d570-c4cd-492c-a2f5-ec25b28e135f" type="MATS.OA.Ticket">
+          <orm:collection element-class="MATS.OA.Ticket" inverse-field="_client" order-by="" uniqueId="518b0638-87a1-477d-9aec-79fe303d2b62" />
+        </orm:field>
+        <orm:index name="IX_AddressId">
+          <orm:columnMapping>
+            <orm:column name="AddressId" sql-type="int" nullable="true" length="0" scale="0" ado-type="Int32" />
+          </orm:columnMapping>
+        </orm:index>
+      </orm:class>
+      <orm:class name="Attachment" uniqueId="84b5de39-abd1-4302-a735-17310c56c6c6">
+        <orm:table name="Attachments" />
+        <orm:identity>
+          <orm:key-generator name="autoinc" />
+          <orm:single-field field-name="_id" />
+        </orm:identity>
+        <orm:concurrency strategy="changed" />
+        <orm:field name="_id" property="Id" behavior="readwrite" uniqueId="346dfd52-94b2-4e29-97eb-ea676d995ce2" type="System.Int32">
+          <orm:column name="Id" sql-type="int" nullable="false" length="0" scale="0" primary-key="true" backend-calculated="true" ado-type="Int32" />
+        </orm:field>
+        <orm:field name="_attachmentName" property="AttachmentName" behavior="readwrite" uniqueId="6c61516f-4b5d-48ed-8384-d8bbbf3c3fef" type="System.String">
+          <orm:column name="AttachmentName" sql-type="nvarchar" nullable="false" length="75" scale="0" ado-type="UnicodeStringVariableLength" />
+        </orm:field>
+        <orm:field name="_ticketId" property="TicketId" behavior="readwrite" uniqueId="d8811dff-50e4-4625-913f-2f5fe1633819" type="System.Int32">
+          <orm:column name="TicketId" sql-type="int" nullable="false" length="0" scale="0" ado-type="Int32" />
+        </orm:field>
+        <orm:field name="_enabled" property="Enabled" behavior="readwrite" uniqueId="5f21c9b6-fd0e-453f-b034-d22215d74c5d" type="System.Int32">
+          <orm:column name="Enabled" sql-type="int" nullable="false" length="0" scale="0" ado-type="Int32" />
+        </orm:field>
+        <orm:field name="_createdByUserId" property="CreatedByUserId" behavior="readwrite" uniqueId="132a16c0-36c1-4ec4-997a-b0ed391046fe" type="System.Nullable`1[[System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]">
+          <orm:column name="CreatedByUserId" sql-type="int" nullable="true" length="0" scale="0" ado-type="Int32" />
+        </orm:field>
+        <orm:field name="_dateRecordCreated" property="DateRecordCreated" behavior="readwrite" uniqueId="50e32eed-6e4a-48b7-961a-90bfc2cd42ee" type="System.Nullable`1[[System.DateTime, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]">
+          <orm:column name="DateRecordCreated" sql-type="datetime" nullable="true" length="0" scale="0" ado-type="DateTime" />
+        </orm:field>
+        <orm:field name="_modifiedByUserId" property="ModifiedByUserId" behavior="readwrite" uniqueId="714feed9-280b-48d6-9b76-410deff05862" type="System.Nullable`1[[System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]">
+          <orm:column name="ModifiedByUserId" sql-type="int" nullable="true" length="0" scale="0" ado-type="Int32" />
+        </orm:field>
+        <orm:field name="_dateLastModified" property="DateLastModified" behavior="readwrite" uniqueId="56c78471-6478-4e55-b999-f40f92bc5dc2" type="System.Nullable`1[[System.DateTime, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]">
+          <orm:column name="DateLastModified" sql-type="datetime" nullable="true" length="0" scale="0" ado-type="DateTime" />
+        </orm:field>
+        <orm:field name="_attachmentStatus" property="AttachmentStatus" behavior="readwrite" uniqueId="3423b448-a14b-49da-8dc7-efb1fe9cee48" type="System.Int32">
+          <orm:column has-default-value="true" nullable="false" length="0" name="AttachmentStatus" scale="0" sql-type="int" ado-type="Int32" />
+        </orm:field>
+        <orm:field name="_ticket" property="Ticket" behavior="readwrite" uniqueId="f170ddbd-6911-4ebb-bad9-57626b5e809c" type="MATS.OA.Ticket">
+          <orm:reference uniqueId="07511a04-24ee-4901-abd5-88a242b274cb">
+            <orm:sharedfield name="_ticketId" target-class="MATS.OA.Ticket" target-field="_id" />
+            <orm:constraint name="FK_dbo.Attachments_dbo.Tickets_TicketId" destination-table="Tickets" />
+          </orm:reference>
+        </orm:field>
+        <orm:index name="IX_TicketId">
+          <orm:columnMapping>
+            <orm:column name="TicketId" sql-type="int" nullable="false" length="0" scale="0" ado-type="Int32" />
+          </orm:columnMapping>
+        </orm:index>
+      </orm:class>
+      <orm:class name="Address" uniqueId="b9438a12-932e-4531-ac5e-f438b02bab10">
+        <orm:table name="Addresses" />
+        <orm:identity>
+          <orm:key-generator name="autoinc" />
+          <orm:single-field field-name="_id" />
+        </orm:identity>
+        <orm:concurrency strategy="changed" />
+        <orm:field name="_id" property="Id" behavior="readwrite" uniqueId="028adb8a-e870-465e-813d-6b3372329eff" type="System.Int32">
+          <orm:column name="Id" sql-type="int" nullable="false" length="0" scale="0" primary-key="true" backend-calculated="true" ado-type="Int32" />
+        </orm:field>
+        <orm:field name="_country" property="Country" behavior="readwrite" uniqueId="4b183c34-f61b-4073-8b2b-ec3313759309" type="System.String">
+          <orm:column name="Country" sql-type="nvarchar(max)" nullable="true" length="0" scale="0" ado-type="UnicodeStringInfiniteLength" />
+        </orm:field>
+        <orm:field name="_city" property="City" behavior="readwrite" uniqueId="0daca2a9-fd8b-439e-b4e7-594a21cab24a" type="System.String">
+          <orm:column name="City" sql-type="nvarchar" nullable="true" length="15" scale="0" ado-type="UnicodeStringVariableLength" />
+        </orm:field>
+        <orm:field name="_streetAddress" property="StreetAddress" behavior="readwrite" uniqueId="12a83f09-7bad-42b4-a924-bad5c8171be0" type="System.String">
+          <orm:column name="StreetAddress" sql-type="nvarchar" nullable="true" length="30" scale="0" ado-type="UnicodeStringVariableLength" />
+        </orm:field>
+        <orm:field name="_subCity" property="SubCity" behavior="readwrite" uniqueId="c5c670ec-1feb-4e06-b05a-8ee895fd2903" type="System.String">
+          <orm:column name="SubCity" sql-type="nvarchar" nullable="true" length="15" scale="0" ado-type="UnicodeStringVariableLength" />
+        </orm:field>
+        <orm:field name="_kebele" property="Kebele" behavior="readwrite" uniqueId="23372d77-5fa2-44f8-ac3d-e24aca40385e" type="System.String">
+          <orm:column name="Kebele" sql-type="nvarchar" nullable="true" length="40" scale="0" ado-type="UnicodeStringVariableLength" />
+        </orm:field>
+        <orm:field name="_houseNumber" property="HouseNumber" behavior="readwrite" uniqueId="933e4220-2802-4388-a55b-4d1cc5828961" type="System.String">
+          <orm:column name="HouseNumber" sql-type="nvarchar" nullable="true" length="30" scale="0" ado-type="UnicodeStringVariableLength" />
+        </orm:field>
+        <orm:field name="_telephone" property="Telephone" behavior="readwrite" uniqueId="3e322c00-4c8e-4e5d-aaa4-d86a006e3b71" type="System.String">
+          <orm:column name="Telephone" sql-type="nvarchar" nullable="true" length="24" scale="0" ado-type="UnicodeStringVariableLength" />
+        </orm:field>
+        <orm:field name="_mobile" property="Mobile" behavior="readwrite" uniqueId="bfc752a2-c9b9-4c7b-8ea8-4122ea001eaa" type="System.String">
+          <orm:column name="Mobile" sql-type="nvarchar" nullable="false" length="30" scale="0" ado-type="UnicodeStringVariableLength" />
+        </orm:field>
+        <orm:field name="_poBox" property="PoBox" behavior="readwrite" uniqueId="ff5ef068-cffd-4edb-9417-25ebebd8d25b" type="System.String">
+          <orm:column name="PoBox" sql-type="nvarchar" nullable="true" length="60" scale="0" ado-type="UnicodeStringVariableLength" />
+        </orm:field>
+        <orm:field name="_fax" property="Fax" behavior="readwrite" uniqueId="a9656d9a-f99d-4eba-b064-1cc69ed15bba" type="System.String">
+          <orm:column name="Fax" sql-type="nvarchar" nullable="true" length="24" scale="0" ado-type="UnicodeStringVariableLength" />
+        </orm:field>
+        <orm:field name="_primaryEmail" property="PrimaryEmail" behavior="readwrite" uniqueId="fa1718da-e097-4e27-96b9-d1aa71698df2" type="System.String">
+          <orm:column name="PrimaryEmail" sql-type="nvarchar" nullable="false" length="50" scale="0" ado-type="UnicodeStringVariableLength" />
+        </orm:field>
+        <orm:field name="_alternateEmail" property="AlternateEmail" behavior="readwrite" uniqueId="a0a7267c-2659-4054-9caa-6d355c1ea1fe" type="System.String">
+          <orm:column name="AlternateEmail" sql-type="nvarchar" nullable="true" length="15" scale="0" ado-type="UnicodeStringVariableLength" />
+        </orm:field>
+        <orm:field name="_enabled" property="Enabled" behavior="readwrite" uniqueId="41ef457f-40bd-43a7-bd60-e14555cea3b1" type="System.Int32">
+          <orm:column name="Enabled" sql-type="int" nullable="false" length="0" scale="0" ado-type="Int32" />
+        </orm:field>
+        <orm:field name="_createdByUserId" property="CreatedByUserId" behavior="readwrite" uniqueId="e53f6e7d-4904-4140-827a-864ed9278960" type="System.Nullable`1[[System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]">
+          <orm:column name="CreatedByUserId" sql-type="int" nullable="true" length="0" scale="0" ado-type="Int32" />
+        </orm:field>
+        <orm:field name="_dateRecordCreated" property="DateRecordCreated" behavior="readwrite" uniqueId="d6d430e3-fd9e-416d-9721-cc57b6220f7d" type="System.Nullable`1[[System.DateTime, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]">
+          <orm:column name="DateRecordCreated" sql-type="datetime" nullable="true" length="0" scale="0" ado-type="DateTime" />
+        </orm:field>
+        <orm:field name="_modifiedByUserId" property="ModifiedByUserId" behavior="readwrite" uniqueId="bdba9f49-32d0-4e83-b4e7-ff31b25d1933" type="System.Nullable`1[[System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]">
+          <orm:column name="ModifiedByUserId" sql-type="int" nullable="true" length="0" scale="0" ado-type="Int32" />
+        </orm:field>
+        <orm:field name="_dateLastModified" property="DateLastModified" behavior="readwrite" uniqueId="1dfd8249-9b2a-4daa-9c96-dd2980491ac5" type="System.Nullable`1[[System.DateTime, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]">
+          <orm:column name="DateLastModified" sql-type="datetime" nullable="true" length="0" scale="0" ado-type="DateTime" />
+        </orm:field>
+        <orm:field name="_contacts" property="Contacts" behavior="readwrite" uniqueId="0b459183-d131-46a2-9652-294e2007dafe" type="MATS.OA.Contact">
+          <orm:collection element-class="MATS.OA.Contact" inverse-field="_address" order-by="" uniqueId="74b80b80-cbfd-4d8f-9fd3-45b32f0358dc" />
+        </orm:field>
+        <orm:field name="_clients" property="Clients" behavior="readwrite" uniqueId="c21227b3-711d-4e9b-a26b-a7f612d12c87" type="MATS.OA.Client">
+          <orm:collection element-class="MATS.OA.Client" inverse-field="_address" order-by="" uniqueId="be1d530b-aced-47a3-a050-4091862c8947" />
+        </orm:field>
+      </orm:class>
+      <orm:class name="__MigrationHistory" uniqueId="c4b3eb4e-96fb-408e-8be9-e20e04cec6a6">
+        <orm:table name="__MigrationHistory" />
+        <orm:identity>
+          <orm:multiple-field>
+            <orm:single-field field-name="_migrationId" />
+            <orm:single-field field-name="_contextKey" />
+          </orm:multiple-field>
+        </orm:identity>
+        <orm:concurrency strategy="changed" />
+        <orm:field name="_migrationId" property="MigrationId" behavior="readwrite" uniqueId="8a96ee30-48b8-4afa-bd3e-76042a2388d4" type="System.String">
+          <orm:column name="MigrationId" sql-type="nvarchar" nullable="false" length="150" scale="0" primary-key="true" ado-type="UnicodeStringVariableLength" />
+        </orm:field>
+        <orm:field name="_contextKey" property="ContextKey" behavior="readwrite" uniqueId="9481694b-f979-4715-8838-8dc3b4a94252" type="System.String">
+          <orm:column name="ContextKey" sql-type="nvarchar" nullable="false" length="300" scale="0" primary-key="true" ado-type="UnicodeStringVariableLength" />
+        </orm:field>
+        <orm:field name="_model" property="Model" behavior="readwrite" uniqueId="f7710009-382d-4157-9d91-228b1240f81f" type="System.Byte[]">
+          <orm:column name="Model" sql-type="varbinary(max)" nullable="false" length="0" scale="0" ado-type="LongVarBinary" />
+        </orm:field>
+        <orm:field name="_productVersion" property="ProductVersion" behavior="readwrite" uniqueId="ed3302a1-74b6-4f4a-8e27-2fde91c18020" type="System.String">
+          <orm:column name="ProductVersion" sql-type="nvarchar" nullable="false" length="32" scale="0" ado-type="UnicodeStringVariableLength" />
+        </orm:field>
+      </orm:class>
+    </orm:namespace>
+    <orm:schema schema="">
+      <orm:table name="UsersInRoles" join-table="true">
+        <orm:column name="UserId" sql-type="int" nullable="false" length="0" scale="0" primary-key="true" ado-type="Int32" />
+        <orm:column name="RoleId" sql-type="int" nullable="false" length="0" scale="0" primary-key="true" ado-type="Int32" />
+        <orm:index name="IX_RoleId">
+          <orm:columnMapping>
+            <orm:column name="RoleId" sql-type="int" nullable="false" length="0" scale="0" primary-key="true" ado-type="Int32" />
+          </orm:columnMapping>
+        </orm:index>
+        <orm:index name="IX_UserId">
+          <orm:columnMapping>
+            <orm:column name="UserId" sql-type="int" nullable="false" length="0" scale="0" primary-key="true" ado-type="Int32" />
+          </orm:columnMapping>
+        </orm:index>
+        <orm:constraint name="FK_dbo.UsersInRoles_dbo.Roles_RoleId" destination-table="Roles">
+          <orm:column name="RoleId" sql-type="int" nullable="false" length="0" scale="0" primary-key="true" ado-type="Int32" />
+        </orm:constraint>
+        <orm:constraint name="FK_dbo.UsersInRoles_dbo.Users_UserId" destination-table="Users">
+          <orm:column name="UserId" sql-type="int" nullable="false" length="0" scale="0" primary-key="true" ado-type="Int32" />
+        </orm:constraint>
+      </orm:table>
+      <orm:table name="Users">
+        <orm:column name="UserId" sql-type="int" nullable="false" length="0" scale="0" primary-key="true" backend-calculated="true" ado-type="Int32" />
+        <orm:column name="UserName" sql-type="nvarchar" nullable="false" length="50" scale="0" ado-type="UnicodeStringVariableLength" />
+        <orm:column name="Email" sql-type="nvarchar" nullable="true" length="50" scale="0" ado-type="UnicodeStringVariableLength" />
+        <orm:column name="Password" sql-type="nvarchar" nullable="false" length="150" scale="0" ado-type="UnicodeStringVariableLength" />
+        <orm:column name="FullName" sql-type="nvarchar" nullable="false" length="150" scale="0" ado-type="UnicodeStringVariableLength" />
+        <orm:column name="Status" sql-type="int" nullable="false" length="0" scale="0" ado-type="Int32" />
+        <orm:column name="Enabled" sql-type="int" nullable="false" length="0" scale="0" ado-type="Int32" />
+        <orm:column name="DateRecordCreated" sql-type="datetime" nullable="true" length="0" scale="0" ado-type="DateTime" />
+        <orm:column name="DateLastModified" sql-type="datetime" nullable="true" length="0" scale="0" ado-type="DateTime" />
+      </orm:table>
+      <orm:table name="Tickets">
+        <orm:column name="Id" sql-type="int" nullable="false" length="0" scale="0" primary-key="true" backend-calculated="true" ado-type="Int32" />
+        <orm:column name="PassengerPassportNumber" sql-type="nvarchar" nullable="false" length="15" scale="0" ado-type="UnicodeStringVariableLength" />
+        <orm:column name="PassengerFullName" sql-type="nvarchar" nullable="false" length="50" scale="0" ado-type="UnicodeStringVariableLength" />
+        <orm:column name="City" sql-type="nvarchar" nullable="false" length="20" scale="0" ado-type="UnicodeStringVariableLength" />
+        <orm:column name="Route" sql-type="nvarchar" nullable="true" length="150" scale="0" ado-type="UnicodeStringVariableLength" />
+        <orm:column name="AirLines" sql-type="nvarchar(max)" nullable="true" length="0" scale="0" ado-type="UnicodeStringInfiniteLength" />
+        <orm:column name="Amount" sql-type="float" nullable="false" length="0" scale="0" ado-type="Double" />
+        <orm:column name="RequestedDate" sql-type="datetime" nullable="false" length="0" scale="0" ado-type="DateTime" />
+        <orm:column name="TypeOfTrip" sql-type="int" nullable="false" length="0" scale="0" ado-type="Int32" />
+        <orm:column name="TicketNumber" sql-type="nvarchar" nullable="true" length="50" scale="0" ado-type="UnicodeStringVariableLength" />
+        <orm:column name="CheckInDate" sql-type="datetime" nullable="true" length="0" scale="0" ado-type="DateTime" />
+        <orm:column name="FlightDate" sql-type="datetime" nullable="true" length="0" scale="0" ado-type="DateTime" />
+        <orm:column name="CommisionPercent" sql-type="real" nullable="true" length="0" scale="0" ado-type="Real" />
+        <orm:column name="FlightCost" sql-type="decimal" nullable="true" length="18" scale="2" ado-type="Decimal" />
+        <orm:column name="ClientId" sql-type="int" nullable="false" length="0" scale="0" ado-type="Int32" />
+        <orm:column name="LocalStatus" sql-type="int" nullable="false" length="0" scale="0" ado-type="Int32" />
+        <orm:column name="LocalStatusDate" sql-type="datetime" nullable="true" length="0" scale="0" ado-type="DateTime" />
+        <orm:column name="ServerStatus" sql-type="int" nullable="false" length="0" scale="0" ado-type="Int32" />
+        <orm:column name="ServerStatusDate" sql-type="datetime" nullable="true" length="0" scale="0" ado-type="DateTime" />
+        <orm:column name="Enabled" sql-type="int" nullable="false" length="0" scale="0" ado-type="Int32" />
+        <orm:column name="CreatedByUserId" sql-type="int" nullable="true" length="0" scale="0" ado-type="Int32" />
+        <orm:column name="DateRecordCreated" sql-type="datetime" nullable="true" length="0" scale="0" ado-type="DateTime" />
+        <orm:column name="ModifiedByUserId" sql-type="int" nullable="true" length="0" scale="0" ado-type="Int32" />
+        <orm:column name="DateLastModified" sql-type="datetime" nullable="true" length="0" scale="0" ado-type="DateTime" />
+        <orm:column name="ServerPost" sql-type="bit" nullable="false" length="0" scale="0" ado-type="Bit" />
+        <orm:column name="LocalPost" sql-type="bit" nullable="false" length="0" scale="0" ado-type="Bit" />
+        <orm:column name="ROWGUID" sql-type="nvarchar(max)" nullable="false" length="0" scale="0" ado-type="UnicodeStringInfiniteLength" />
+        <orm:index name="IX_ClientId">
+          <orm:columnMapping>
+            <orm:column name="ClientId" sql-type="int" nullable="false" length="0" scale="0" ado-type="Int32" />
+          </orm:columnMapping>
+        </orm:index>
+        <orm:constraint name="FK_dbo.Tickets_dbo.Clients_ClientId" destination-table="Clients">
+          <orm:column name="ClientId" sql-type="int" nullable="false" length="0" scale="0" ado-type="Int32" />
+        </orm:constraint>
+      </orm:table>
+      <orm:table name="Roles">
+        <orm:column name="RoleId" sql-type="int" nullable="false" length="0" scale="0" primary-key="true" backend-calculated="true" ado-type="Int32" />
+        <orm:column name="RoleDescription" sql-type="nvarchar" nullable="false" length="255" scale="0" ado-type="UnicodeStringVariableLength" />
+        <orm:column name="RoleDescriptionShort" sql-type="nvarchar(max)" nullable="true" length="0" scale="0" ado-type="UnicodeStringInfiniteLength" />
+        <orm:column name="Enabled" sql-type="int" nullable="false" length="0" scale="0" ado-type="Int32" />
+        <orm:column name="DateRecordCreated" sql-type="datetime" nullable="true" length="0" scale="0" ado-type="DateTime" />
+        <orm:column name="DateLastModified" sql-type="datetime" nullable="true" length="0" scale="0" ado-type="DateTime" />
+      </orm:table>
+      <orm:table name="Remarks">
+        <orm:column name="Id" sql-type="int" nullable="false" length="0" scale="0" primary-key="true" backend-calculated="true" ado-type="Int32" />
+        <orm:column name="RemarkText" sql-type="nvarchar(max)" nullable="false" length="0" scale="0" ado-type="UnicodeStringInfiniteLength" />
+        <orm:column name="TicketId" sql-type="int" nullable="false" length="0" scale="0" ado-type="Int32" />
+        <orm:column name="Enabled" sql-type="int" nullable="false" length="0" scale="0" ado-type="Int32" />
+        <orm:column name="CreatedByUserId" sql-type="int" nullable="true" length="0" scale="0" ado-type="Int32" />
+        <orm:column name="DateRecordCreated" sql-type="datetime" nullable="true" length="0" scale="0" ado-type="DateTime" />
+        <orm:column name="ModifiedByUserId" sql-type="int" nullable="true" length="0" scale="0" ado-type="Int32" />
+        <orm:column name="DateLastModified" sql-type="datetime" nullable="true" length="0" scale="0" ado-type="DateTime" />
+        <orm:index name="IX_TicketId">
+          <orm:columnMapping>
+            <orm:column name="TicketId" sql-type="int" nullable="false" length="0" scale="0" ado-type="Int32" />
+          </orm:columnMapping>
+        </orm:index>
+        <orm:constraint name="FK_dbo.Remarks_dbo.Tickets_TicketId" destination-table="Tickets">
+          <orm:column name="TicketId" sql-type="int" nullable="false" length="0" scale="0" ado-type="Int32" />
+        </orm:constraint>
+      </orm:table>
+      <orm:table name="ProductActivation">
+        <orm:column name="Id" sql-type="int" nullable="false" length="0" scale="0" primary-key="true" backend-calculated="true" ado-type="Int32" />
+        <orm:column name="ProductKey" sql-type="nvarchar" nullable="false" length="150" scale="0" ado-type="UnicodeStringVariableLength" />
+        <orm:column name="LicensedTo" sql-type="nvarchar" nullable="false" length="150" scale="0" ado-type="UnicodeStringVariableLength" />
+        <orm:column name="ActivatedDate" sql-type="datetime" nullable="false" length="0" scale="0" ado-type="DateTime" />
+        <orm:column name="ExpirationDate" sql-type="datetime" nullable="false" length="0" scale="0" ado-type="DateTime" />
+        <orm:column name="RegisteredBIOS_SN" sql-type="nvarchar" nullable="false" length="150" scale="0" ado-type="UnicodeStringVariableLength" />
+        <orm:column name="Enabled" sql-type="int" nullable="false" length="0" scale="0" ado-type="Int32" />
+        <orm:column name="CreatedByUserId" sql-type="int" nullable="true" length="0" scale="0" ado-type="Int32" />
+        <orm:column name="DateRecordCreated" sql-type="datetime" nullable="true" length="0" scale="0" ado-type="DateTime" />
+        <orm:column name="ModifiedByUserId" sql-type="int" nullable="true" length="0" scale="0" ado-type="Int32" />
+        <orm:column name="DateLastModified" sql-type="datetime" nullable="true" length="0" scale="0" ado-type="DateTime" />
+        <orm:column name="ClientId" sql-type="int" nullable="false" length="0" scale="0" ado-type="Int32" />
+      </orm:table>
+      <orm:table name="PaymentDTO">
+        <orm:column name="Id" sql-type="int" nullable="false" length="0" scale="0" primary-key="true" backend-calculated="true" ado-type="Int32" />
+        <orm:column name="AmountPaid" sql-type="float" nullable="false" length="0" scale="0" ado-type="Double" />
+        <orm:column name="PaidDate" sql-type="datetime" nullable="false" length="0" scale="0" ado-type="DateTime" />
+        <orm:column name="PaymentStatus" sql-type="nvarchar(max)" nullable="true" length="0" scale="0" ado-type="UnicodeStringInfiniteLength" />
+        <orm:column name="TicketId" sql-type="int" nullable="false" length="0" scale="0" ado-type="Int32" />
+        <orm:column name="Enabled" sql-type="int" nullable="false" length="0" scale="0" ado-type="Int32" />
+        <orm:column name="CreatedByUserId" sql-type="int" nullable="true" length="0" scale="0" ado-type="Int32" />
+        <orm:column name="DateRecordCreated" sql-type="datetime" nullable="true" length="0" scale="0" ado-type="DateTime" />
+        <orm:column name="ModifiedByUserId" sql-type="int" nullable="true" length="0" scale="0" ado-type="Int32" />
+        <orm:column name="DateLastModified" sql-type="datetime" nullable="true" length="0" scale="0" ado-type="DateTime" />
+        <orm:index name="IX_TicketId">
+          <orm:columnMapping>
+            <orm:column name="TicketId" sql-type="int" nullable="false" length="0" scale="0" ado-type="Int32" />
+          </orm:columnMapping>
+        </orm:index>
+        <orm:constraint name="FK_dbo.PaymentDTO_dbo.Tickets_TicketId" destination-table="Tickets">
+          <orm:column name="TicketId" sql-type="int" nullable="false" length="0" scale="0" ado-type="Int32" />
+        </orm:constraint>
+      </orm:table>
+      <orm:table name="Lists">
+        <orm:column name="Id" sql-type="int" nullable="false" length="0" scale="0" primary-key="true" backend-calculated="true" ado-type="Int32" />
+        <orm:column name="Type" sql-type="int" nullable="false" length="0" scale="0" ado-type="Int32" />
+        <orm:column name="DisplayName" sql-type="nvarchar" nullable="false" length="75" scale="0" ado-type="UnicodeStringVariableLength" />
+      </orm:table>
+      <orm:table name="Contacts">
+        <orm:column name="Id" sql-type="int" nullable="false" length="0" scale="0" primary-key="true" backend-calculated="true" ado-type="Int32" />
+        <orm:column name="ContactName" sql-type="nvarchar" nullable="false" length="45" scale="0" ado-type="UnicodeStringVariableLength" />
+        <orm:column name="ContactTitle" sql-type="nvarchar" nullable="true" length="15" scale="0" ado-type="UnicodeStringVariableLength" />
+        <orm:column name="AddressId" sql-type="int" nullable="false" length="0" scale="0" ado-type="Int32" />
+        <orm:column name="Enabled" sql-type="int" nullable="false" length="0" scale="0" ado-type="Int32" />
+        <orm:column name="CreatedByUserId" sql-type="int" nullable="true" length="0" scale="0" ado-type="Int32" />
+        <orm:column name="DateRecordCreated" sql-type="datetime" nullable="true" length="0" scale="0" ado-type="DateTime" />
+        <orm:column name="ModifiedByUserId" sql-type="int" nullable="true" length="0" scale="0" ado-type="Int32" />
+        <orm:column name="DateLastModified" sql-type="datetime" nullable="true" length="0" scale="0" ado-type="DateTime" />
+        <orm:index name="IX_AddressId">
+          <orm:columnMapping>
+            <orm:column name="AddressId" sql-type="int" nullable="false" length="0" scale="0" ado-type="Int32" />
+          </orm:columnMapping>
+        </orm:index>
+        <orm:constraint name="FK_dbo.Contacts_dbo.Addresses_AddressId" destination-table="Addresses">
+          <orm:column name="AddressId" sql-type="int" nullable="false" length="0" scale="0" ado-type="Int32" />
+        </orm:constraint>
+      </orm:table>
+      <orm:table name="Clients">
+        <orm:column name="Id" sql-type="int" nullable="false" length="0" scale="0" primary-key="true" backend-calculated="true" ado-type="Int32" />
+        <orm:column name="ClientCode" sql-type="nvarchar" nullable="false" length="50" scale="0" ado-type="UnicodeStringVariableLength" />
+        <orm:column name="DisplayName" sql-type="nvarchar" nullable="false" length="50" scale="0" ado-type="UnicodeStringVariableLength" />
+        <orm:column name="ContactName" sql-type="nvarchar" nullable="true" length="50" scale="0" ado-type="UnicodeStringVariableLength" />
+        <orm:column name="ContactTitle" sql-type="nvarchar" nullable="true" length="50" scale="0" ado-type="UnicodeStringVariableLength" />
+        <orm:column name="OutStandingDeposit" sql-type="decimal" nullable="true" length="18" scale="2" ado-type="Decimal" />
+        <orm:column name="ClientStatus" sql-type="int" nullable="false" length="0" scale="0" ado-type="Int32" />
+        <orm:column name="ProductKey" sql-type="nvarchar(max)" nullable="false" length="0" scale="0" ado-type="UnicodeStringInfiniteLength" />
+        <orm:column name="ExpiryDuration" sql-type="int" nullable="false" length="0" scale="0" ado-type="Int32" />
+        <orm:column name="BIOS_SN" sql-type="nvarchar(max)" nullable="true" length="0" scale="0" ado-type="UnicodeStringInfiniteLength" />
+        <orm:column name="NoOfActivations" sql-type="int" nullable="false" length="0" scale="0" ado-type="Int32" />
+        <orm:column name="ActivationDate" sql-type="datetime" nullable="true" length="0" scale="0" ado-type="DateTime" />
+        <orm:column name="ExpirationDate" sql-type="datetime" nullable="true" length="0" scale="0" ado-type="DateTime" />
+        <orm:column name="AddressId" sql-type="int" nullable="true" length="0" scale="0" ado-type="Int32" />
+        <orm:column name="Enabled" sql-type="int" nullable="false" length="0" scale="0" ado-type="Int32" />
+        <orm:column name="CreatedByUserId" sql-type="int" nullable="true" length="0" scale="0" ado-type="Int32" />
+        <orm:column name="DateRecordCreated" sql-type="datetime" nullable="true" length="0" scale="0" ado-type="DateTime" />
+        <orm:column name="ModifiedByUserId" sql-type="int" nullable="true" length="0" scale="0" ado-type="Int32" />
+        <orm:column name="DateLastModified" sql-type="datetime" nullable="true" length="0" scale="0" ado-type="DateTime" />
+        <orm:column name="NoOfAllowedPcs" sql-type="int" nullable="false" length="0" scale="0" ado-type="Int32" />
+        <orm:index name="IX_AddressId">
+          <orm:columnMapping>
+            <orm:column name="AddressId" sql-type="int" nullable="true" length="0" scale="0" ado-type="Int32" />
+          </orm:columnMapping>
+        </orm:index>
+        <orm:constraint name="FK_dbo.Clients_dbo.Addresses_AddressId" destination-table="Addresses">
+          <orm:column name="AddressId" sql-type="int" nullable="true" length="0" scale="0" ado-type="Int32" />
+        </orm:constraint>
+      </orm:table>
+      <orm:table name="Attachments">
+        <orm:column name="Id" sql-type="int" nullable="false" length="0" scale="0" primary-key="true" backend-calculated="true" ado-type="Int32" />
+        <orm:column name="AttachmentName" sql-type="nvarchar" nullable="false" length="75" scale="0" ado-type="UnicodeStringVariableLength" />
+        <orm:column name="TicketId" sql-type="int" nullable="false" length="0" scale="0" ado-type="Int32" />
+        <orm:column name="Enabled" sql-type="int" nullable="false" length="0" scale="0" ado-type="Int32" />
+        <orm:column name="CreatedByUserId" sql-type="int" nullable="true" length="0" scale="0" ado-type="Int32" />
+        <orm:column name="DateRecordCreated" sql-type="datetime" nullable="true" length="0" scale="0" ado-type="DateTime" />
+        <orm:column name="ModifiedByUserId" sql-type="int" nullable="true" length="0" scale="0" ado-type="Int32" />
+        <orm:column name="DateLastModified" sql-type="datetime" nullable="true" length="0" scale="0" ado-type="DateTime" />
+        <orm:column has-default-value="true" nullable="false" length="0" name="AttachmentStatus" scale="0" sql-type="int" ado-type="Int32" />
+        <orm:index name="IX_TicketId">
+          <orm:columnMapping>
+            <orm:column name="TicketId" sql-type="int" nullable="false" length="0" scale="0" ado-type="Int32" />
+          </orm:columnMapping>
+        </orm:index>
+        <orm:constraint name="FK_dbo.Attachments_dbo.Tickets_TicketId" destination-table="Tickets">
+          <orm:column name="TicketId" sql-type="int" nullable="false" length="0" scale="0" ado-type="Int32" />
+        </orm:constraint>
+      </orm:table>
+      <orm:table name="Addresses">
+        <orm:column name="Id" sql-type="int" nullable="false" length="0" scale="0" primary-key="true" backend-calculated="true" ado-type="Int32" />
+        <orm:column name="Country" sql-type="nvarchar(max)" nullable="true" length="0" scale="0" ado-type="UnicodeStringInfiniteLength" />
+        <orm:column name="City" sql-type="nvarchar" nullable="true" length="15" scale="0" ado-type="UnicodeStringVariableLength" />
+        <orm:column name="StreetAddress" sql-type="nvarchar" nullable="true" length="30" scale="0" ado-type="UnicodeStringVariableLength" />
+        <orm:column name="SubCity" sql-type="nvarchar" nullable="true" length="15" scale="0" ado-type="UnicodeStringVariableLength" />
+        <orm:column name="Kebele" sql-type="nvarchar" nullable="true" length="40" scale="0" ado-type="UnicodeStringVariableLength" />
+        <orm:column name="HouseNumber" sql-type="nvarchar" nullable="true" length="30" scale="0" ado-type="UnicodeStringVariableLength" />
+        <orm:column name="Telephone" sql-type="nvarchar" nullable="true" length="24" scale="0" ado-type="UnicodeStringVariableLength" />
+        <orm:column name="Mobile" sql-type="nvarchar" nullable="false" length="30" scale="0" ado-type="UnicodeStringVariableLength" />
+        <orm:column name="PoBox" sql-type="nvarchar" nullable="true" length="60" scale="0" ado-type="UnicodeStringVariableLength" />
+        <orm:column name="Fax" sql-type="nvarchar" nullable="true" length="24" scale="0" ado-type="UnicodeStringVariableLength" />
+        <orm:column name="PrimaryEmail" sql-type="nvarchar" nullable="false" length="50" scale="0" ado-type="UnicodeStringVariableLength" />
+        <orm:column name="AlternateEmail" sql-type="nvarchar" nullable="true" length="15" scale="0" ado-type="UnicodeStringVariableLength" />
+        <orm:column name="Enabled" sql-type="int" nullable="false" length="0" scale="0" ado-type="Int32" />
+        <orm:column name="CreatedByUserId" sql-type="int" nullable="true" length="0" scale="0" ado-type="Int32" />
+        <orm:column name="DateRecordCreated" sql-type="datetime" nullable="true" length="0" scale="0" ado-type="DateTime" />
+        <orm:column name="ModifiedByUserId" sql-type="int" nullable="true" length="0" scale="0" ado-type="Int32" />
+        <orm:column name="DateLastModified" sql-type="datetime" nullable="true" length="0" scale="0" ado-type="DateTime" />
+      </orm:table>
+      <orm:table name="__MigrationHistory">
+        <orm:column name="MigrationId" sql-type="nvarchar" nullable="false" length="150" scale="0" primary-key="true" ado-type="UnicodeStringVariableLength" />
+        <orm:column name="ContextKey" sql-type="nvarchar" nullable="false" length="300" scale="0" primary-key="true" ado-type="UnicodeStringVariableLength" />
+        <orm:column name="Model" sql-type="varbinary(max)" nullable="false" length="0" scale="0" ado-type="LongVarBinary" />
+        <orm:column name="ProductVersion" sql-type="nvarchar" nullable="false" length="32" scale="0" ado-type="UnicodeStringVariableLength" />
+      </orm:table>
+    </orm:schema>
+    <orm:relational-naming-settings>
+      <orm:remove-camel-case>False</orm:remove-camel-case>
+      <orm:source-strategy>Property</orm:source-strategy>
+    </orm:relational-naming-settings>
+  </orm:orm>
+  <ModelSettings xmlns="">
+    <AppConfigConnectionPropertyName>MatsDbConnection</AppConfigConnectionPropertyName>
+    <AppConfigConnectionString>data source=.;initial catalog=MatsDb1;user id=sa;password=amihan</AppConfigConnectionString>
+    <InitialCatalog>MatsDb</InitialCatalog>
+    <NamingSettings>
+      <ClassRules>
+        <CaseMode>PascalCase</CaseMode>
+        <PluralizationMode>Singularize</PluralizationMode>
+      </ClassRules>
+      <FieldRules>
+        <AddPrefix>_</AddPrefix>
+        <CaseMode>CamelCase</CaseMode>
+      </FieldRules>
+      <PropertyRules>
+        <CaseMode>PascalCase</CaseMode>
+      </PropertyRules>
+    </NamingSettings>
+    <CodeGenerationSettings>
+      <MappingDefinitionType>Xml</MappingDefinitionType>
+    </CodeGenerationSettings>
+    <SchemaUpdateSettings />
+    <BackendConfigurationSettings>
+      <BackendConfiguration>
+        <Backend>MsSql</Backend>
+        <ProviderName>System.Data.SqlClient</ProviderName>
+      </BackendConfiguration>
+    </BackendConfigurationSettings>
+  </ModelSettings>
+  <Types>
+    <DomainClass Id="5767979b-c54f-445f-8900-5b0657a8673d" name="User" namespace="MATS.OA" showPropertiesCompartment="true" identityMechanism="DatabaseServerCalculated" concurrencyMode="Changed" showNavigationCompartment="true" showImplementationCompartment="true">
+      <Property Id="9805e369-94ab-4ae0-a984-d383666caec9" name="UserId" type="Int32" label="UserId : Int32" kind="Persistent" identity="true" fieldName="_userId" />
+      <Property Id="159c98b7-db18-49d7-b59a-252a5ea7e910" name="DateLastModified" type="DateTime" label="DateLastModified : DateTime" nullable="true" kind="Persistent" fieldName="_dateLastModified" />
+      <Property Id="f9b9c0d8-f3d6-423e-81fe-d02f41efa03e" name="DateRecordCreated" type="DateTime" label="DateRecordCreated : DateTime" nullable="true" kind="Persistent" fieldName="_dateRecordCreated" />
+      <Property Id="067ceaf7-02d6-4845-a5ee-a392ba50881e" name="Email" label="Email : String" kind="Persistent" fieldName="_email" />
+      <Property Id="4edd7a23-7c40-4d90-811f-d368ca5736c2" name="Enabled" type="Int32" label="Enabled : Int32" kind="Persistent" fieldName="_enabled" />
+      <Property Id="f4f60d54-d2f2-4567-9ca4-168d4d6c868f" name="FullName" label="FullName : String" kind="Persistent" fieldName="_fullName" />
+      <Property Id="b3dd7416-bb76-43ee-b3d2-934ce3d0b5a4" name="Password" label="Password : String" kind="Persistent" fieldName="_password" />
+      <Property Id="99413bf3-864a-49f6-8728-b0abb765c1fc" name="Status" type="Int32" label="Status : Int32" kind="Persistent" fieldName="_status" />
+      <Property Id="d4739883-d3b7-4447-a084-423151b5e59c" name="UserName" label="UserName : String" kind="Persistent" fieldName="_userName" />
+      <navigationalProperties>
+        <classHasNavigationalProperties Id="c70e67e6-8174-4eb2-b428-fab7366b9f74">
+          <NavigationalProperty Id="f0ed89ea-073f-41d4-a381-22855d71fa5e" name="Roles" type="IList&lt;Role&gt;" label="Roles : IList&lt;Role&gt;" nullable="true" kind="Persistent" fieldName="_roles" isDependent="false" isManaged="false" />
+        </classHasNavigationalProperties>
+      </navigationalProperties>
+    </DomainClass>
+    <DomainClass Id="15d8a962-77e7-4a95-80f5-3a6bf3811c90" name="Ticket" namespace="MATS.OA" showPropertiesCompartment="true" identityMechanism="DatabaseServerCalculated" concurrencyMode="Changed" showNavigationCompartment="true" showImplementationCompartment="true">
+      <Property Id="68550d64-0776-413d-9c0d-c44c6e450733" name="Id" type="Int32" label="Id : Int32" kind="Persistent" identity="true" fieldName="_id" />
+      <Property Id="91745dc4-d427-4027-8984-fc0c76d91449" name="AirLines" label="AirLines : String" kind="Persistent" fieldName="_airLines" />
+      <Property Id="1060be70-39a2-4ae6-ad2c-7331ba084848" name="Amount" type="Double" label="Amount : Double" kind="Persistent" fieldName="_amount" />
+      <Property Id="204f235f-7663-49ee-a616-1a695b7cdcf2" name="CheckInDate" type="DateTime" label="CheckInDate : DateTime" nullable="true" kind="Persistent" fieldName="_checkInDate" />
+      <Property Id="ecee18ed-7018-4c7b-9b3b-aba50736d451" name="City" label="City : String" kind="Persistent" fieldName="_city" />
+      <Property Id="85a46c79-dd0f-4b1f-a412-d90acb452584" name="ClientId" type="Int32" label="ClientId : Int32" kind="Persistent" fieldName="_clientId" />
+      <Property Id="4ce9b977-1d36-46c5-9cdb-ff7c3923017c" name="CommisionPercent" type="Single" label="CommisionPercent : Single" nullable="true" kind="Persistent" fieldName="_commisionPercent" />
+      <Property Id="6ec114f9-e270-4864-9017-55559a06e7ab" name="CreatedByUserId" type="Int32" label="CreatedByUserId : Int32" nullable="true" kind="Persistent" fieldName="_createdByUserId" />
+      <Property Id="bc560ef0-65fb-4f5f-8748-c92548a2d147" name="DateLastModified" type="DateTime" label="DateLastModified : DateTime" nullable="true" kind="Persistent" fieldName="_dateLastModified" />
+      <Property Id="f25c11d9-8a42-417b-92e6-3269b2346bcf" name="DateRecordCreated" type="DateTime" label="DateRecordCreated : DateTime" nullable="true" kind="Persistent" fieldName="_dateRecordCreated" />
+      <Property Id="74221ed3-194c-4c26-a856-298f47c9e56b" name="Enabled" type="Int32" label="Enabled : Int32" kind="Persistent" fieldName="_enabled" />
+      <Property Id="c439f66b-da40-420f-9c60-05cf1ee489dc" name="FlightCost" type="Decimal" label="FlightCost : Decimal" nullable="true" kind="Persistent" fieldName="_flightCost" />
+      <Property Id="7737ec64-0ee0-409b-9427-48cb12b6c125" name="FlightDate" type="DateTime" label="FlightDate : DateTime" nullable="true" kind="Persistent" fieldName="_flightDate" />
+      <Property Id="2cd4b810-97b6-4b26-8004-76d5df451e4e" name="LocalStatus" type="Int32" label="LocalStatus : Int32" kind="Persistent" fieldName="_localStatus" />
+      <Property Id="255b7b0a-eb46-43e8-b738-9de886b980a8" name="LocalStatusDate" type="DateTime" label="LocalStatusDate : DateTime" nullable="true" kind="Persistent" fieldName="_localStatusDate" />
+      <Property Id="4c1ff341-9c75-40b8-82b9-f0ebeaf0d424" name="ModifiedByUserId" type="Int32" label="ModifiedByUserId : Int32" nullable="true" kind="Persistent" fieldName="_modifiedByUserId" />
+      <Property Id="12fc193c-bdb6-4bca-b240-8a23a5f49779" name="PassengerFullName" label="PassengerFullName : String" kind="Persistent" fieldName="_passengerFullName" />
+      <Property Id="bfbef89a-0a50-4190-b9f0-17f2d43e3c71" name="PassengerPassportNumber" label="PassengerPassportNumber : String" kind="Persistent" fieldName="_passengerPassportNumber" />
+      <Property Id="05768919-fb3e-47d0-abcb-408e1118b239" name="RequestedDate" type="DateTime" label="RequestedDate : DateTime" kind="Persistent" fieldName="_requestedDate" />
+      <Property Id="ba8f1dad-62b6-451f-843c-660b74d3282c" name="Route" label="Route : String" kind="Persistent" fieldName="_route" />
+      <Property Id="71aa885b-1c71-4216-aa39-562a97d07f54" name="ServerStatus" type="Int32" label="ServerStatus : Int32" kind="Persistent" fieldName="_serverStatus" />
+      <Property Id="c4a3162a-9782-4e32-9b23-7c04e2ba1b0c" name="ServerStatusDate" type="DateTime" label="ServerStatusDate : DateTime" nullable="true" kind="Persistent" fieldName="_serverStatusDate" />
+      <Property Id="2078e548-6903-4472-9195-4109197aafc2" name="TicketNumber" label="TicketNumber : String" kind="Persistent" fieldName="_ticketNumber" />
+      <Property Id="f20b2ec9-3ab9-4871-bce8-d73df888e5b0" name="TypeOfTrip" type="Int32" label="TypeOfTrip : Int32" kind="Persistent" fieldName="_typeOfTrip" />
+      <Property Id="d70e48c8-906b-4652-97fb-69dcd1d389f8" name="ServerPost" type="Boolean" label="ServerPost : Boolean" kind="Persistent" fieldName="_serverPost" />
+      <Property Id="44f61437-6efe-4da2-93fc-0c9618b34669" name="LocalPost" type="Boolean" label="LocalPost : Boolean" kind="Persistent" fieldName="_localPost" />
+      <Property Id="7cea3e8c-83f4-4a1a-8fb4-63e20f88a8be" name="ROWGUID" label="ROWGUID : String" kind="Persistent" fieldName="_rOWGUID" />
+      <AssociationTargets>
+        <Association Id="518b0638-87a1-477d-9aec-79fe303d2b62" SourceMultiplicity="One" name="TicketHasClient">
+          <DomainClassMoniker name="/MATSServerDbContext/Client" />
+          <targetNavigationalProperty>
+            <associationDefinesTargetProperty Id="87108424-bb97-4ccf-ac1f-a7eff210b2bc">
+              <NavigationalPropertyMoniker name="/MATSServerDbContext/Client/Tickets" />
+            </associationDefinesTargetProperty>
+          </targetNavigationalProperty>
+          <sourceNavigationalProperty>
+            <associationDefinesSourceProperty Id="3f560b1f-5190-4808-86ce-dccc232fc47e">
+              <NavigationalPropertyMoniker name="/MATSServerDbContext/Ticket/Client" />
+            </associationDefinesSourceProperty>
+          </sourceNavigationalProperty>
+        </Association>
+      </AssociationTargets>
+      <navigationalProperties>
+        <classHasNavigationalProperties Id="9f8ec92b-c012-4fd6-8c5e-bd214c88e234">
+          <NavigationalProperty Id="bf2d77e2-11bb-420a-8b8b-787570193f49" name="Client" type="Client" label="Client : Client" nullable="true" kind="Persistent" fieldName="_client" isDependent="false" isManaged="false" />
+        </classHasNavigationalProperties>
+        <classHasNavigationalProperties Id="91fc0a1c-23f0-4713-8334-eb12c8d32a6b">
+          <NavigationalProperty Id="96281f19-e00a-49c9-9bbd-a5d87e315abc" name="Remarks" type="IList&lt;Remark&gt;" label="Remarks : IList&lt;Remark&gt;" nullable="true" kind="Persistent" fieldName="_remarks" isDependent="false" isManaged="false" />
+        </classHasNavigationalProperties>
+        <classHasNavigationalProperties Id="5372981b-6a71-4d81-ab82-9d265bfb48b9">
+          <NavigationalProperty Id="9ab3bba4-3a9c-4578-9519-bce72fca67b1" name="PaymentDTOs" type="IList&lt;PaymentDTO&gt;" label="PaymentDTOs : IList&lt;PaymentDTO&gt;" nullable="true" kind="Persistent" fieldName="_paymentDTOs" isDependent="false" isManaged="false" />
+        </classHasNavigationalProperties>
+        <classHasNavigationalProperties Id="3b38751e-a750-4c72-a05a-edccbbbfcd26">
+          <NavigationalProperty Id="23c6b05e-7c8d-411b-ae65-5fcdad3e0a6c" name="Attachments" type="IList&lt;Attachment&gt;" label="Attachments : IList&lt;Attachment&gt;" nullable="true" kind="Persistent" fieldName="_attachments" isDependent="false" isManaged="false" />
+        </classHasNavigationalProperties>
+      </navigationalProperties>
+    </DomainClass>
+    <DomainClass Id="437758ea-2a10-497c-b85f-6e343c052ab1" name="Role" namespace="MATS.OA" showPropertiesCompartment="true" identityMechanism="DatabaseServerCalculated" concurrencyMode="Changed" showNavigationCompartment="true" showImplementationCompartment="true">
+      <Property Id="136bd02e-c607-41e5-b7cd-90f44eb0aa99" name="RoleId" type="Int32" label="RoleId : Int32" kind="Persistent" identity="true" fieldName="_roleId" />
+      <Property Id="8d85c702-fb6c-4e81-ba96-a3cd554183eb" name="DateLastModified" type="DateTime" label="DateLastModified : DateTime" nullable="true" kind="Persistent" fieldName="_dateLastModified" />
+      <Property Id="1af448ab-8ff1-48a5-9763-2fd8656f54cb" name="DateRecordCreated" type="DateTime" label="DateRecordCreated : DateTime" nullable="true" kind="Persistent" fieldName="_dateRecordCreated" />
+      <Property Id="2a04dcea-8613-4517-9b2b-4b39ae1ae524" name="Enabled" type="Int32" label="Enabled : Int32" kind="Persistent" fieldName="_enabled" />
+      <Property Id="71bf7168-4dd4-407f-a1cc-dd32bedac264" name="RoleDescription" label="RoleDescription : String" kind="Persistent" fieldName="_roleDescription" />
+      <Property Id="cdcd8ac2-c5da-4340-ab48-006ee5f98c44" name="RoleDescriptionShort" label="RoleDescriptionShort : String" kind="Persistent" fieldName="_roleDescriptionShort" />
+      <AssociationTargets>
+        <Association Id="37e69725-b990-49a7-a4d4-bcdcc7983482" name="RolesHaveUsers">
+          <DomainClassMoniker name="/MATSServerDbContext/User" />
+          <targetNavigationalProperty>
+            <associationDefinesTargetProperty Id="a9152eb7-864c-4dcf-ba19-4cddfc9e9f24">
+              <NavigationalPropertyMoniker name="/MATSServerDbContext/User/Roles" />
+            </associationDefinesTargetProperty>
+          </targetNavigationalProperty>
+          <sourceNavigationalProperty>
+            <associationDefinesSourceProperty Id="fd65263c-c88d-4b02-81b9-9dccc7508967">
+              <NavigationalPropertyMoniker name="/MATSServerDbContext/Role/Users" />
+            </associationDefinesSourceProperty>
+          </sourceNavigationalProperty>
+        </Association>
+      </AssociationTargets>
+      <navigationalProperties>
+        <classHasNavigationalProperties Id="c6c9dbbb-c4a9-4d81-93e3-fa49b7d7d151">
+          <NavigationalProperty Id="741ff3e4-3fb9-4bc8-974e-cc51fe8704c6" name="Users" type="IList&lt;User&gt;" label="Users : IList&lt;User&gt;" nullable="true" kind="Persistent" fieldName="_users" isDependent="false" isManaged="false" />
+        </classHasNavigationalProperties>
+      </navigationalProperties>
+    </DomainClass>
+    <DomainClass Id="eada8611-d2c5-41e4-87f4-89635f3afbd8" name="Remark" namespace="MATS.OA" showPropertiesCompartment="true" identityMechanism="DatabaseServerCalculated" concurrencyMode="Changed" showNavigationCompartment="true" showImplementationCompartment="true">
+      <Property Id="31fd0e06-c839-462d-969b-b1261bab867d" name="Id" type="Int32" label="Id : Int32" kind="Persistent" identity="true" fieldName="_id" />
+      <Property Id="b360d55f-3d92-4173-abb4-fcdd01f9dfca" name="CreatedByUserId" type="Int32" label="CreatedByUserId : Int32" nullable="true" kind="Persistent" fieldName="_createdByUserId" />
+      <Property Id="b55b0a93-d788-418d-bbba-e3a5403b0840" name="DateLastModified" type="DateTime" label="DateLastModified : DateTime" nullable="true" kind="Persistent" fieldName="_dateLastModified" />
+      <Property Id="d008d3c1-1e79-4321-9be8-0b1fc8bf1038" name="DateRecordCreated" type="DateTime" label="DateRecordCreated : DateTime" nullable="true" kind="Persistent" fieldName="_dateRecordCreated" />
+      <Property Id="fa4ebd1c-e274-4d80-af1f-b43a4e231eb9" name="Enabled" type="Int32" label="Enabled : Int32" kind="Persistent" fieldName="_enabled" />
+      <Property Id="aab120f9-6c5a-4b2a-85f8-c6a06249aef4" name="ModifiedByUserId" type="Int32" label="ModifiedByUserId : Int32" nullable="true" kind="Persistent" fieldName="_modifiedByUserId" />
+      <Property Id="da4e5057-5d1a-4b0c-8927-2b12faf58ccd" name="RemarkText" label="RemarkText : String" kind="Persistent" fieldName="_remarkText" />
+      <Property Id="4a8500ab-26c9-47bd-968f-921a66d8427a" name="TicketId" type="Int32" label="TicketId : Int32" kind="Persistent" fieldName="_ticketId" />
+      <AssociationTargets>
+        <Association Id="d0e0d891-b09b-40c7-a46d-6af20b8aabc7" SourceMultiplicity="One" name="RemarkHasTicket">
+          <DomainClassMoniker name="/MATSServerDbContext/Ticket" />
+          <targetNavigationalProperty>
+            <associationDefinesTargetProperty Id="8f39cc59-bab4-43f4-ad54-521bc1dff0dc">
+              <NavigationalPropertyMoniker name="/MATSServerDbContext/Ticket/Remarks" />
+            </associationDefinesTargetProperty>
+          </targetNavigationalProperty>
+          <sourceNavigationalProperty>
+            <associationDefinesSourceProperty Id="1fe9bcf3-1af1-441b-ac21-c6c92a259062">
+              <NavigationalPropertyMoniker name="/MATSServerDbContext/Remark/Ticket" />
+            </associationDefinesSourceProperty>
+          </sourceNavigationalProperty>
+        </Association>
+      </AssociationTargets>
+      <navigationalProperties>
+        <classHasNavigationalProperties Id="043a852b-95f5-4ea3-9765-01c97a933198">
+          <NavigationalProperty Id="cc3a41c5-2363-4af8-8516-4b5993b46d6a" name="Ticket" type="Ticket" label="Ticket : Ticket" nullable="true" kind="Persistent" fieldName="_ticket" isDependent="false" isManaged="false" />
+        </classHasNavigationalProperties>
+      </navigationalProperties>
+    </DomainClass>
+    <DomainClass Id="a2d6132f-0844-4ed0-aff9-69c4a38a246b" name="ProductActivation" namespace="MATS.OA" showPropertiesCompartment="true" identityMechanism="DatabaseServerCalculated" concurrencyMode="Changed" showNavigationCompartment="true" showImplementationCompartment="true">
+      <Property Id="4b6b97cb-e01e-43c7-a839-54e721ff70eb" name="Id" type="Int32" label="Id : Int32" kind="Persistent" identity="true" fieldName="_id" />
+      <Property Id="ee404408-fa07-47af-81e6-8e4eb97412c7" name="ActivatedDate" type="DateTime" label="ActivatedDate : DateTime" kind="Persistent" fieldName="_activatedDate" />
+      <Property Id="a3804f80-08ea-4559-94ff-f4be00cbeaff" name="CreatedByUserId" type="Int32" label="CreatedByUserId : Int32" nullable="true" kind="Persistent" fieldName="_createdByUserId" />
+      <Property Id="2dc6bce3-05dd-4d14-978b-b003b5371bd5" name="DateLastModified" type="DateTime" label="DateLastModified : DateTime" nullable="true" kind="Persistent" fieldName="_dateLastModified" />
+      <Property Id="92d90fec-640b-41b1-8d1a-d64eacbe804b" name="DateRecordCreated" type="DateTime" label="DateRecordCreated : DateTime" nullable="true" kind="Persistent" fieldName="_dateRecordCreated" />
+      <Property Id="7cba151c-f3e5-4203-988d-e7cbbc3bf08d" name="Enabled" type="Int32" label="Enabled : Int32" kind="Persistent" fieldName="_enabled" />
+      <Property Id="a66669cf-fa12-4b3b-a569-e78f9a4287f6" name="ExpirationDate" type="DateTime" label="ExpirationDate : DateTime" kind="Persistent" fieldName="_expirationDate" />
+      <Property Id="e4173be6-e573-40c2-a406-0a46e368355f" name="LicensedTo" label="LicensedTo : String" kind="Persistent" fieldName="_licensedTo" />
+      <Property Id="246986e8-03a5-4d41-86b4-adfa440d5d40" name="ModifiedByUserId" type="Int32" label="ModifiedByUserId : Int32" nullable="true" kind="Persistent" fieldName="_modifiedByUserId" />
+      <Property Id="e7e8773c-c525-49fa-aefb-bfc6db1f73f3" name="ProductKey" label="ProductKey : String" kind="Persistent" fieldName="_productKey" />
+      <Property Id="7bb25f08-5972-4151-aa62-7f7361c42e51" name="RegisteredBIOS_SN" label="RegisteredBIOS_SN : String" kind="Persistent" fieldName="_registeredBIOS_SN" />
+      <Property Id="7421b676-4b66-4296-9be5-54ae30c99b88" name="ClientId" type="Int32" label="ClientId : Int32" kind="Persistent" fieldName="_clientId" />
+    </DomainClass>
+    <DomainClass Id="b6a39d4a-1345-488f-a64e-91066c25d6f5" name="PaymentDTO" namespace="MATS.OA" showPropertiesCompartment="true" identityMechanism="DatabaseServerCalculated" concurrencyMode="Changed" showNavigationCompartment="true" showImplementationCompartment="true">
+      <Property Id="066cceee-0a83-4d72-9a64-2ecde347cae6" name="Id" type="Int32" label="Id : Int32" kind="Persistent" identity="true" fieldName="_id" />
+      <Property Id="2af7e077-af08-45b9-af67-512834379f17" name="AmountPaid" type="Double" label="AmountPaid : Double" kind="Persistent" fieldName="_amountPaid" />
+      <Property Id="1240c0be-0d7f-4aef-9154-60494002399e" name="CreatedByUserId" type="Int32" label="CreatedByUserId : Int32" nullable="true" kind="Persistent" fieldName="_createdByUserId" />
+      <Property Id="da494219-eea0-4650-8480-858d85c0ddfe" name="DateLastModified" type="DateTime" label="DateLastModified : DateTime" nullable="true" kind="Persistent" fieldName="_dateLastModified" />
+      <Property Id="fde674d8-9139-48a0-bd25-2033e90393bf" name="DateRecordCreated" type="DateTime" label="DateRecordCreated : DateTime" nullable="true" kind="Persistent" fieldName="_dateRecordCreated" />
+      <Property Id="81fbebdf-56ab-4a08-b9aa-42a60d1b2f5b" name="Enabled" type="Int32" label="Enabled : Int32" kind="Persistent" fieldName="_enabled" />
+      <Property Id="c12226d0-2745-4535-8740-a6b748a7485b" name="ModifiedByUserId" type="Int32" label="ModifiedByUserId : Int32" nullable="true" kind="Persistent" fieldName="_modifiedByUserId" />
+      <Property Id="75e0a30c-450d-42ed-a11e-785476f105f3" name="PaidDate" type="DateTime" label="PaidDate : DateTime" kind="Persistent" fieldName="_paidDate" />
+      <Property Id="4d2536e1-a6f8-44e6-8dd4-bfc88e48e352" name="PaymentStatus" label="PaymentStatus : String" kind="Persistent" fieldName="_paymentStatus" />
+      <Property Id="a77969b0-bce6-40a0-acac-82835a6d20ac" name="TicketId" type="Int32" label="TicketId : Int32" kind="Persistent" fieldName="_ticketId" />
+      <AssociationTargets>
+        <Association Id="223ce6b4-3577-46ea-b844-926c5552a9ae" SourceMultiplicity="One" name="PaymentDTOHasTicket">
+          <DomainClassMoniker name="/MATSServerDbContext/Ticket" />
+          <targetNavigationalProperty>
+            <associationDefinesTargetProperty Id="d962de6a-f034-47e7-88e9-e20dfd3aea84">
+              <NavigationalPropertyMoniker name="/MATSServerDbContext/Ticket/PaymentDTOs" />
+            </associationDefinesTargetProperty>
+          </targetNavigationalProperty>
+          <sourceNavigationalProperty>
+            <associationDefinesSourceProperty Id="df5210d0-26e5-4825-bb8f-b8e64def4aa3">
+              <NavigationalPropertyMoniker name="/MATSServerDbContext/PaymentDTO/Ticket" />
+            </associationDefinesSourceProperty>
+          </sourceNavigationalProperty>
+        </Association>
+      </AssociationTargets>
+      <navigationalProperties>
+        <classHasNavigationalProperties Id="8ac584fd-90f3-48db-9af2-2c3d19180d15">
+          <NavigationalProperty Id="3f83fb50-2a91-43b0-9f59-0f5b5b250e26" name="Ticket" type="Ticket" label="Ticket : Ticket" nullable="true" kind="Persistent" fieldName="_ticket" isDependent="false" isManaged="false" />
+        </classHasNavigationalProperties>
+      </navigationalProperties>
+    </DomainClass>
+    <DomainClass Id="197d28f7-a8be-4382-91e9-c06230b958ab" name="List" namespace="MATS.OA" showPropertiesCompartment="true" identityMechanism="DatabaseServerCalculated" concurrencyMode="Changed" showNavigationCompartment="true" showImplementationCompartment="true">
+      <Property Id="8119faf7-6c77-4bcc-8dc5-0c9e2ee0cf3e" name="Id" type="Int32" label="Id : Int32" kind="Persistent" identity="true" fieldName="_id" />
+      <Property Id="0e6fba10-8a6f-4724-bf8b-f15ec99f8b51" name="DisplayName" label="DisplayName : String" kind="Persistent" fieldName="_displayName" />
+      <Property Id="a8135ffc-3fe6-488b-b251-1c215318261c" name="Type" type="Int32" label="Type : Int32" kind="Persistent" fieldName="_type" />
+    </DomainClass>
+    <DomainClass Id="dfb9b98a-4ba9-4b91-b66c-9f1f996c607d" name="Contact" namespace="MATS.OA" showPropertiesCompartment="true" identityMechanism="DatabaseServerCalculated" concurrencyMode="Changed" showNavigationCompartment="true" showImplementationCompartment="true">
+      <Property Id="fa3163fa-b31b-4ba9-9fe0-d260ccf36d71" name="Id" type="Int32" label="Id : Int32" kind="Persistent" identity="true" fieldName="_id" />
+      <Property Id="878c612f-fc20-472d-ae96-7d65cd1e72f7" name="AddressId" type="Int32" label="AddressId : Int32" kind="Persistent" fieldName="_addressId" />
+      <Property Id="5777089b-5b81-4bfd-889f-8bb4655d228f" name="ContactName" label="ContactName : String" kind="Persistent" fieldName="_contactName" />
+      <Property Id="1ff8b147-8030-4852-825e-fa0a58b73648" name="ContactTitle" label="ContactTitle : String" kind="Persistent" fieldName="_contactTitle" />
+      <Property Id="1d2c3ff0-ad31-4744-b232-35234d38c528" name="CreatedByUserId" type="Int32" label="CreatedByUserId : Int32" nullable="true" kind="Persistent" fieldName="_createdByUserId" />
+      <Property Id="1fd1861d-f8a8-41eb-8adb-429e99d589ad" name="DateLastModified" type="DateTime" label="DateLastModified : DateTime" nullable="true" kind="Persistent" fieldName="_dateLastModified" />
+      <Property Id="c0777537-1139-45d5-a750-81c6733f9c27" name="DateRecordCreated" type="DateTime" label="DateRecordCreated : DateTime" nullable="true" kind="Persistent" fieldName="_dateRecordCreated" />
+      <Property Id="5351d937-a626-4d52-b874-917298c087d1" name="Enabled" type="Int32" label="Enabled : Int32" kind="Persistent" fieldName="_enabled" />
+      <Property Id="ad54d25b-a726-46b2-8567-3f2c702c8be8" name="ModifiedByUserId" type="Int32" label="ModifiedByUserId : Int32" nullable="true" kind="Persistent" fieldName="_modifiedByUserId" />
+      <AssociationTargets>
+        <Association Id="74b80b80-cbfd-4d8f-9fd3-45b32f0358dc" SourceMultiplicity="One" name="ContactHasAddress">
+          <DomainClassMoniker name="/MATSServerDbContext/Address" />
+          <targetNavigationalProperty>
+            <associationDefinesTargetProperty Id="2adfe916-53d9-466d-96eb-2efba48ad8b1">
+              <NavigationalPropertyMoniker name="/MATSServerDbContext/Address/Contacts" />
+            </associationDefinesTargetProperty>
+          </targetNavigationalProperty>
+          <sourceNavigationalProperty>
+            <associationDefinesSourceProperty Id="9abb3442-d403-4eeb-ad2a-9ba363b85d43">
+              <NavigationalPropertyMoniker name="/MATSServerDbContext/Contact/Address" />
+            </associationDefinesSourceProperty>
+          </sourceNavigationalProperty>
+        </Association>
+      </AssociationTargets>
+      <navigationalProperties>
+        <classHasNavigationalProperties Id="69d9f052-6ab7-4745-9f0f-ebfb5d820879">
+          <NavigationalProperty Id="cdf6102b-c561-4c0f-95e9-934eb4884134" name="Address" type="Address" label="Address : Address" nullable="true" kind="Persistent" fieldName="_address" isDependent="false" isManaged="false" />
+        </classHasNavigationalProperties>
+      </navigationalProperties>
+    </DomainClass>
+    <DomainClass Id="3aab20fc-c1ea-4f3c-ba35-8cf65e43dc4c" name="Client" namespace="MATS.OA" showPropertiesCompartment="true" identityMechanism="DatabaseServerCalculated" concurrencyMode="Changed" showNavigationCompartment="true" showImplementationCompartment="true">
+      <Property Id="b3d4aea0-7c51-44f4-9326-ee17cedc27e3" name="Id" type="Int32" label="Id : Int32" kind="Persistent" identity="true" fieldName="_id" />
+      <Property Id="8677a765-8d78-4a2c-9fe9-24bb74b27765" name="ActivationDate" type="DateTime" label="ActivationDate : DateTime" nullable="true" kind="Persistent" fieldName="_activationDate" />
+      <Property Id="a07e128c-9f2d-4b8d-83f1-511805c0fdf2" name="AddressId" type="Int32" label="AddressId : Int32" nullable="true" kind="Persistent" fieldName="_addressId" />
+      <Property Id="64f5e526-95dd-4852-ba13-3a6c2f634598" name="BIOS_SN" label="BIOS_SN : String" kind="Persistent" fieldName="_bIOS_SN" />
+      <Property Id="895486bb-fd06-4c10-8b3c-0b538a519dbe" name="ClientCode" label="ClientCode : String" kind="Persistent" fieldName="_clientCode" />
+      <Property Id="d3e72d3c-c980-4fda-a20e-20445b77a8a4" name="ClientStatus" type="Int32" label="ClientStatus : Int32" kind="Persistent" fieldName="_clientStatus" />
+      <Property Id="c72a0a7e-2eb0-479e-b9ca-89b4fdae7654" name="ContactName" label="ContactName : String" kind="Persistent" fieldName="_contactName" />
+      <Property Id="0a7e8ceb-8307-473b-a532-ecf250f8bf15" name="ContactTitle" label="ContactTitle : String" kind="Persistent" fieldName="_contactTitle" />
+      <Property Id="d5a1d138-4df2-45ba-a641-e2673ab189c0" name="CreatedByUserId" type="Int32" label="CreatedByUserId : Int32" nullable="true" kind="Persistent" fieldName="_createdByUserId" />
+      <Property Id="8d2fbfa9-8717-4dc7-91cb-4be395bcb079" name="DateLastModified" type="DateTime" label="DateLastModified : DateTime" nullable="true" kind="Persistent" fieldName="_dateLastModified" />
+      <Property Id="7a160d5b-0a17-49d9-bc0c-0702ce3cb76d" name="DateRecordCreated" type="DateTime" label="DateRecordCreated : DateTime" nullable="true" kind="Persistent" fieldName="_dateRecordCreated" />
+      <Property Id="8f141f5a-ef7b-4e79-a9f9-050b39154cc7" name="DisplayName" label="DisplayName : String" kind="Persistent" fieldName="_displayName" />
+      <Property Id="7c6d1f60-d4be-4fac-96c4-fd4e25ded9d4" name="Enabled" type="Int32" label="Enabled : Int32" kind="Persistent" fieldName="_enabled" />
+      <Property Id="5bfc2a68-6c1c-44f0-a1cd-00b018821719" name="ExpirationDate" type="DateTime" label="ExpirationDate : DateTime" nullable="true" kind="Persistent" fieldName="_expirationDate" />
+      <Property Id="2cb0b742-4e11-4acf-a389-630e4e66c11a" name="ExpiryDuration" type="Int32" label="ExpiryDuration : Int32" kind="Persistent" fieldName="_expiryDuration" />
+      <Property Id="0fff0292-4730-49d1-804d-bced91bdddbb" name="ModifiedByUserId" type="Int32" label="ModifiedByUserId : Int32" nullable="true" kind="Persistent" fieldName="_modifiedByUserId" />
+      <Property Id="2f0a1b23-b15d-4c61-949e-231e84901e25" name="NoOfActivations" type="Int32" label="NoOfActivations : Int32" kind="Persistent" fieldName="_noOfActivations" />
+      <Property Id="353e3c6d-5cbf-46ae-9738-0d629043775b" name="NoOfAllowedPcs" type="Int32" label="NoOfAllowedPcs : Int32" kind="Persistent" fieldName="_noOfAllowedPcs" />
+      <Property Id="16723ee3-c9ee-411e-bbfe-ab6eb0d68099" name="OutStandingDeposit" type="Decimal" label="OutStandingDeposit : Decimal" nullable="true" kind="Persistent" fieldName="_outStandingDeposit" />
+      <Property Id="f0b76d24-17a4-4376-8682-efce3b1634ab" name="ProductKey" label="ProductKey : String" kind="Persistent" fieldName="_productKey" />
+      <AssociationTargets>
+        <Association Id="be1d530b-aced-47a3-a050-4091862c8947" SourceMultiplicity="ZeroOne" name="ClientHasAddress">
+          <DomainClassMoniker name="/MATSServerDbContext/Address" />
+          <targetNavigationalProperty>
+            <associationDefinesTargetProperty Id="492646ad-928c-4f71-a0c1-e36757366c03">
+              <NavigationalPropertyMoniker name="/MATSServerDbContext/Address/Clients" />
+            </associationDefinesTargetProperty>
+          </targetNavigationalProperty>
+          <sourceNavigationalProperty>
+            <associationDefinesSourceProperty Id="438d4579-60ff-43d1-a2bc-d376829f5a51">
+              <NavigationalPropertyMoniker name="/MATSServerDbContext/Client/Address" />
+            </associationDefinesSourceProperty>
+          </sourceNavigationalProperty>
+        </Association>
+      </AssociationTargets>
+      <navigationalProperties>
+        <classHasNavigationalProperties Id="719e7712-c34c-4913-8b3e-55ee596f4c0f">
+          <NavigationalProperty Id="e677d570-c4cd-492c-a2f5-ec25b28e135f" name="Tickets" type="IList&lt;Ticket&gt;" label="Tickets : IList&lt;Ticket&gt;" nullable="true" kind="Persistent" fieldName="_tickets" isDependent="false" isManaged="false" />
+        </classHasNavigationalProperties>
+        <classHasNavigationalProperties Id="416568e2-d4db-49a0-b75d-1593db148fc7">
+          <NavigationalProperty Id="42a22f83-3aad-4409-8fcd-f2a33fd80ae7" name="Address" type="Address" label="Address : Address" nullable="true" kind="Persistent" fieldName="_address" isDependent="false" isManaged="false" />
+        </classHasNavigationalProperties>
+      </navigationalProperties>
+    </DomainClass>
+    <DomainClass Id="84b5de39-abd1-4302-a735-17310c56c6c6" name="Attachment" namespace="MATS.OA" showPropertiesCompartment="true" identityMechanism="DatabaseServerCalculated" concurrencyMode="Changed" showNavigationCompartment="true" showImplementationCompartment="true">
+      <Property Id="346dfd52-94b2-4e29-97eb-ea676d995ce2" name="Id" type="Int32" label="Id : Int32" kind="Persistent" identity="true" fieldName="_id" />
+      <Property Id="6c61516f-4b5d-48ed-8384-d8bbbf3c3fef" name="AttachmentName" label="AttachmentName : String" kind="Persistent" fieldName="_attachmentName" />
+      <Property Id="132a16c0-36c1-4ec4-997a-b0ed391046fe" name="CreatedByUserId" type="Int32" label="CreatedByUserId : Int32" nullable="true" kind="Persistent" fieldName="_createdByUserId" />
+      <Property Id="56c78471-6478-4e55-b999-f40f92bc5dc2" name="DateLastModified" type="DateTime" label="DateLastModified : DateTime" nullable="true" kind="Persistent" fieldName="_dateLastModified" />
+      <Property Id="50e32eed-6e4a-48b7-961a-90bfc2cd42ee" name="DateRecordCreated" type="DateTime" label="DateRecordCreated : DateTime" nullable="true" kind="Persistent" fieldName="_dateRecordCreated" />
+      <Property Id="5f21c9b6-fd0e-453f-b034-d22215d74c5d" name="Enabled" type="Int32" label="Enabled : Int32" kind="Persistent" fieldName="_enabled" />
+      <Property Id="714feed9-280b-48d6-9b76-410deff05862" name="ModifiedByUserId" type="Int32" label="ModifiedByUserId : Int32" nullable="true" kind="Persistent" fieldName="_modifiedByUserId" />
+      <Property Id="d8811dff-50e4-4625-913f-2f5fe1633819" name="TicketId" type="Int32" label="TicketId : Int32" kind="Persistent" fieldName="_ticketId" />
+      <Property Id="3423b448-a14b-49da-8dc7-efb1fe9cee48" name="AttachmentStatus" type="Int32" label="AttachmentStatus : Int32" kind="Persistent" fieldName="_attachmentStatus" />
+      <AssociationTargets>
+        <Association Id="07511a04-24ee-4901-abd5-88a242b274cb" SourceMultiplicity="One" name="AttachmentHasTicket">
+          <DomainClassMoniker name="/MATSServerDbContext/Ticket" />
+          <targetNavigationalProperty>
+            <associationDefinesTargetProperty Id="62512eef-0d35-4b06-8cb2-bea88741f8de">
+              <NavigationalPropertyMoniker name="/MATSServerDbContext/Ticket/Attachments" />
+            </associationDefinesTargetProperty>
+          </targetNavigationalProperty>
+          <sourceNavigationalProperty>
+            <associationDefinesSourceProperty Id="2d5faf0f-ce72-4669-bccb-d63a7bc6ad03">
+              <NavigationalPropertyMoniker name="/MATSServerDbContext/Attachment/Ticket" />
+            </associationDefinesSourceProperty>
+          </sourceNavigationalProperty>
+        </Association>
+      </AssociationTargets>
+      <navigationalProperties>
+        <classHasNavigationalProperties Id="df4da7ee-0818-47b0-b1ac-c6820bc9bf69">
+          <NavigationalProperty Id="f170ddbd-6911-4ebb-bad9-57626b5e809c" name="Ticket" type="Ticket" label="Ticket : Ticket" nullable="true" kind="Persistent" fieldName="_ticket" isDependent="false" isManaged="false" />
+        </classHasNavigationalProperties>
+      </navigationalProperties>
+    </DomainClass>
+    <DomainClass Id="b9438a12-932e-4531-ac5e-f438b02bab10" name="Address" namespace="MATS.OA" showPropertiesCompartment="true" identityMechanism="DatabaseServerCalculated" concurrencyMode="Changed" showNavigationCompartment="true" showImplementationCompartment="true">
+      <Property Id="028adb8a-e870-465e-813d-6b3372329eff" name="Id" type="Int32" label="Id : Int32" kind="Persistent" identity="true" fieldName="_id" />
+      <Property Id="a0a7267c-2659-4054-9caa-6d355c1ea1fe" name="AlternateEmail" label="AlternateEmail : String" kind="Persistent" fieldName="_alternateEmail" />
+      <Property Id="0daca2a9-fd8b-439e-b4e7-594a21cab24a" name="City" label="City : String" kind="Persistent" fieldName="_city" />
+      <Property Id="4b183c34-f61b-4073-8b2b-ec3313759309" name="Country" label="Country : String" kind="Persistent" fieldName="_country" />
+      <Property Id="e53f6e7d-4904-4140-827a-864ed9278960" name="CreatedByUserId" type="Int32" label="CreatedByUserId : Int32" nullable="true" kind="Persistent" fieldName="_createdByUserId" />
+      <Property Id="1dfd8249-9b2a-4daa-9c96-dd2980491ac5" name="DateLastModified" type="DateTime" label="DateLastModified : DateTime" nullable="true" kind="Persistent" fieldName="_dateLastModified" />
+      <Property Id="d6d430e3-fd9e-416d-9721-cc57b6220f7d" name="DateRecordCreated" type="DateTime" label="DateRecordCreated : DateTime" nullable="true" kind="Persistent" fieldName="_dateRecordCreated" />
+      <Property Id="41ef457f-40bd-43a7-bd60-e14555cea3b1" name="Enabled" type="Int32" label="Enabled : Int32" kind="Persistent" fieldName="_enabled" />
+      <Property Id="a9656d9a-f99d-4eba-b064-1cc69ed15bba" name="Fax" label="Fax : String" kind="Persistent" fieldName="_fax" />
+      <Property Id="933e4220-2802-4388-a55b-4d1cc5828961" name="HouseNumber" label="HouseNumber : String" kind="Persistent" fieldName="_houseNumber" />
+      <Property Id="23372d77-5fa2-44f8-ac3d-e24aca40385e" name="Kebele" label="Kebele : String" kind="Persistent" fieldName="_kebele" />
+      <Property Id="bfc752a2-c9b9-4c7b-8ea8-4122ea001eaa" name="Mobile" label="Mobile : String" kind="Persistent" fieldName="_mobile" />
+      <Property Id="bdba9f49-32d0-4e83-b4e7-ff31b25d1933" name="ModifiedByUserId" type="Int32" label="ModifiedByUserId : Int32" nullable="true" kind="Persistent" fieldName="_modifiedByUserId" />
+      <Property Id="ff5ef068-cffd-4edb-9417-25ebebd8d25b" name="PoBox" label="PoBox : String" kind="Persistent" fieldName="_poBox" />
+      <Property Id="fa1718da-e097-4e27-96b9-d1aa71698df2" name="PrimaryEmail" label="PrimaryEmail : String" kind="Persistent" fieldName="_primaryEmail" />
+      <Property Id="12a83f09-7bad-42b4-a924-bad5c8171be0" name="StreetAddress" label="StreetAddress : String" kind="Persistent" fieldName="_streetAddress" />
+      <Property Id="c5c670ec-1feb-4e06-b05a-8ee895fd2903" name="SubCity" label="SubCity : String" kind="Persistent" fieldName="_subCity" />
+      <Property Id="3e322c00-4c8e-4e5d-aaa4-d86a006e3b71" name="Telephone" label="Telephone : String" kind="Persistent" fieldName="_telephone" />
+      <navigationalProperties>
+        <classHasNavigationalProperties Id="60756a47-f403-4e21-960e-d0b22e74754a">
+          <NavigationalProperty Id="0b459183-d131-46a2-9652-294e2007dafe" name="Contacts" type="IList&lt;Contact&gt;" label="Contacts : IList&lt;Contact&gt;" nullable="true" kind="Persistent" fieldName="_contacts" isDependent="false" isManaged="false" />
+        </classHasNavigationalProperties>
+        <classHasNavigationalProperties Id="30202163-f0d3-4f35-9aba-7df0f0b32669">
+          <NavigationalProperty Id="c21227b3-711d-4e9b-a26b-a7f612d12c87" name="Clients" type="IList&lt;Client&gt;" label="Clients : IList&lt;Client&gt;" nullable="true" kind="Persistent" fieldName="_clients" isDependent="false" isManaged="false" />
+        </classHasNavigationalProperties>
+      </navigationalProperties>
+    </DomainClass>
+    <DomainClass Id="c4b3eb4e-96fb-408e-8be9-e20e04cec6a6" name="__MigrationHistory" namespace="MATS.OA" showPropertiesCompartment="true" concurrencyMode="Changed" showNavigationCompartment="true" showImplementationCompartment="true">
+      <Property Id="9481694b-f979-4715-8838-8dc3b4a94252" name="ContextKey" label="ContextKey : String" kind="Persistent" identity="true" fieldName="_contextKey" />
+      <Property Id="8a96ee30-48b8-4afa-bd3e-76042a2388d4" name="MigrationId" label="MigrationId : String" kind="Persistent" identity="true" fieldName="_migrationId" />
+      <Property Id="f7710009-382d-4157-9d91-228b1240f81f" name="Model" type="Byte[]" label="Model : Byte[]" kind="Persistent" fieldName="_model" />
+      <Property Id="ed3302a1-74b6-4f4a-8e27-2fde91c18020" name="ProductVersion" label="ProductVersion : String" kind="Persistent" fieldName="_productVersion" />
+    </DomainClass>
+  </Types>
+  <domainContext>
+    <domainModelHasDomainContext Id="9cad99e6-59d1-4284-be39-10ffea220783">
+      <domainContainer name="MATSServerDbContext" namespace="MATS.OA" showPropertiesCompartment="true">
+        <entitySetProperty name="Users" namespace="MATS.OA" type="User" label="Users : IQueryable&lt;MATS.OA.User&gt;" />
+        <entitySetProperty name="Tickets" namespace="MATS.OA" type="Ticket" label="Tickets : IQueryable&lt;MATS.OA.Ticket&gt;" />
+        <entitySetProperty name="Roles" namespace="MATS.OA" type="Role" label="Roles : IQueryable&lt;MATS.OA.Role&gt;" />
+        <entitySetProperty name="Remarks" namespace="MATS.OA" type="Remark" label="Remarks : IQueryable&lt;MATS.OA.Remark&gt;" />
+        <entitySetProperty name="ProductActivations" namespace="MATS.OA" type="ProductActivation" label="ProductActivations : IQueryable&lt;MATS.OA.ProductActivation&gt;" />
+        <entitySetProperty name="PaymentDTOs" namespace="MATS.OA" type="PaymentDTO" label="PaymentDTOs : IQueryable&lt;MATS.OA.PaymentDTO&gt;" />
+        <entitySetProperty name="Lists" namespace="MATS.OA" type="List" label="Lists : IQueryable&lt;MATS.OA.List&gt;" />
+        <entitySetProperty name="Contacts" namespace="MATS.OA" type="Contact" label="Contacts : IQueryable&lt;MATS.OA.Contact&gt;" />
+        <entitySetProperty name="Clients" namespace="MATS.OA" type="Client" label="Clients : IQueryable&lt;MATS.OA.Client&gt;" />
+        <entitySetProperty name="Attachments" namespace="MATS.OA" type="Attachment" label="Attachments : IQueryable&lt;MATS.OA.Attachment&gt;" />
+        <entitySetProperty name="Addresses" namespace="MATS.OA" type="Address" label="Addresses : IQueryable&lt;MATS.OA.Address&gt;" />
+        <entitySetProperty name="__MigrationHistories" namespace="MATS.OA" type="__MigrationHistory" label="__MigrationHistories : IQueryable&lt;MATS.OA.__MigrationHistory&gt;" />
+      </domainContainer>
+    </domainModelHasDomainContext>
+  </domainContext>
+</DomainModel>

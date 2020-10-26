@@ -1,0 +1,8 @@
+namespace MATS.WPF.ViewModel
+{
+    public class ListDataItem
+    {
+        public string Display { get; set; }
+        public int Value { get; set; }
+    }
+}
